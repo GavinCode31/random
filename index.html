@@ -82,10 +82,9 @@
         <div class="panel rounded-xl p-6 flex flex-col justify-between">
             <h2 class="text-2xl font-bold mb-4 text-white">The Forbidden Button</h2>
             <p class="text-sm text-red-300 mb-4 flex-grow flex items-center">
-                <span class="mr-2 text-xl">⚠️</span> **WARNING!** This button will attempt to *severely* lag your entire device, potentially requiring a hard restart. This is highly experimental and destructive. Click at your own risk.
+                <span class="mr-2 text-xl">⚠️</span> **ULTRA WARNING!** This button initiates an extreme process designed to make your device *immediately* unresponsive and potentially crash it. Data loss or a hard restart might be required. Click at your own severe risk.
             </p>
-            <button id="lagDeviceButton" class="bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50">INITIATE DEVICE LAG</button>
-            <button id="stopLagButton" class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg mt-2 transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 hidden">STOP LAG (If Possible)</button>
+            <button id="instantCrashButton" class="bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50">INITIATE EXTREME DEVICE CRASH</button>
         </div>
 
         <div class="panel rounded-xl p-6 flex items-center justify-center flex-col">
@@ -120,6 +119,40 @@
             </div>
             <button id="newJokeButton" class="mt-4 bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50">New Joke</button>
             <button id="revealPunchlineButton" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg mt-2 transition duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50 hidden">Reveal Punchline</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Curiosity Capsule</h2>
+            <p id="randomFactDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">Uncover a strange truth!</p>
+            <button id="generateFactButton" class="mt-4 bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-opacity-50">New Fact</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Random Word Wizard</h2>
+            <p id="randomWordDisplay" class="text-3xl font-extrabold text-pink-400 text-center flex-grow flex items-center justify-center">WORD</p>
+            <button id="generateWordButton" class="mt-4 bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50">Summon Word</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Mystic Orb of Fate</h2>
+            <input type="text" id="eightBallQuestion" placeholder="Ask a yes/no question..." class="w-full p-2 rounded-md bg-gray-700 text-gray-200 border border-gray-600 mb-4">
+            <p id="eightBallAnswer" class="text-2xl font-bold text-teal-400 text-center flex-grow flex items-center justify-center">...</p>
+            <button id="eightBallButton" class="mt-4 bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">Shake The Orb</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Quantum Dice Roller</h2>
+            <div class="flex justify-around items-center flex-grow">
+                <p id="die1Display" class="text-6xl text-red-400 font-extrabold">?</p>
+                <p id="die2Display" class="text-6xl text-red-400 font-extrabold">?</p>
+            </div>
+            <button id="rollDiceButton" class="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">Roll D6s</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">The Dilemma Portal</h2>
+            <p id="wyrQuestionDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">Would you rather...</p>
+            <button id="newWyrButton" class="mt-4 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50">New Dilemma</button>
         </div>
 
     </div>
@@ -177,60 +210,24 @@
             randomEmojiDisplay.textContent = randomEmoji;
         });
 
-        // --- Panel 4: The Forbidden Button (Device Lag) ---
-        const lagDeviceButton = document.getElementById('lagDeviceButton');
-        const stopLagButton = document.getElementById('stopLagButton');
-        let lagInterval;
-        let largeArray = []; // Declare globally to potentially be garbage collected on stop
+        // --- Panel 4: The Forbidden Button (Extreme Device Crash) ---
+        const instantCrashButton = document.getElementById('instantCrashButton');
 
-        lagDeviceButton.addEventListener('click', () => {
-            if (confirm("WARNING: This button will deliberately attempt to make your entire device lag significantly, potentially requiring a hard restart. Are you absolutely sure you want to proceed?")) {
-                if (lagInterval) clearInterval(lagInterval); // Clear any existing lag
-
-                largeArray = new Array(500000).fill(0).map((_, i) => Math.random() * i); // Allocate memory
-                let calculations = 0;
-
-                lagInterval = setInterval(() => {
-                    // Intensive CPU calculation
-                    let sum = 0;
-                    for (let i = 0; i < largeArray.length; i++) {
-                        sum += Math.sqrt(largeArray[i] * Math.sin(i % 360)); // Use modulo to keep sin input sane
+        instantCrashButton.addEventListener('click', () => {
+            if (confirm("EXTREME WARNING: This action is designed to severely stress your device and may cause it to become completely unresponsive, requiring a hard restart. This is NOT reversible once started. Do you want to proceed?")) {
+                let crashArray = [];
+                let i = 0;
+                // This tight loop combined with memory allocation will rapidly consume resources
+                // and should make the device unresponsive very quickly.
+                while (true) {
+                    crashArray.push(new Array(1000).fill(Math.random()).join('')); // Allocate large strings
+                    // Also perform some heavy math to hog CPU
+                    for (let j = 0; j < 1000; j++) {
+                        Math.sqrt(Math.pow(j, 2) + Math.pow(j + 1, 2));
                     }
-
-                    // Attempt to cause layout thrashing / heavy DOM operations
-                    // This will make rendering slow
-                    const tempDiv = document.createElement('div');
-                    tempDiv.style.width = '1px';
-                    tempDiv.style.height = '1px';
-                    tempDiv.style.position = 'absolute';
-                    tempDiv.style.left = `${Math.random() * 100}%`;
-                    tempDiv.style.top = `${Math.random() * 100}%`;
-                    tempDiv.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 50%)`;
-                    document.body.appendChild(tempDiv);
-
-                    if (document.body.children.length > 20000) { // Limit number of elements to prevent complete crash
-                        document.body.removeChild(document.body.children[Math.floor(Math.random() * document.body.children.length)]);
-                    }
-                    calculations++;
-                    // console.log("Lagging...", calculations, sum); // Uncomment for debugging (will worsen lag)
-                }, 1); // Run as fast as possible (every 1ms)
-
-                stopLagButton.classList.remove('hidden');
-                lagDeviceButton.classList.add('hidden');
-            }
-        });
-
-        stopLagButton.addEventListener('click', () => {
-            if (lagInterval) {
-                clearInterval(lagInterval);
-                lagInterval = null;
-                lagDeviceButton.classList.remove('hidden');
-                stopLagButton.classList.add('hidden');
-                // Attempt to clean up added divs
-                const addedDivs = document.querySelectorAll('body > div[style*="position: absolute"]');
-                addedDivs.forEach(div => div.remove());
-                largeArray = []; // Clear array for garbage collection
-                alert("Lag stopped. Your device should return to normal shortly.");
+                    i++;
+                    // console.log("Crashing...", i); // Do NOT uncomment on mobile!
+                }
             }
         });
 
@@ -247,7 +244,12 @@
         };
 
         spinningItemSelector.addEventListener('change', (event) => {
+            // Fix: Simply updating src should work. Pre-load to ensure smooth transition?
+            // For now, rely on browser's handling of image source change.
+            // If issues persist, consider a small fade-out/fade-in or preloading.
             spinningItem.src = spinningItemSources[event.target.value];
+            // Ensure the image is always visible and its container doesn't hide it
+            spinningItem.classList.remove('hidden');
         });
 
         // --- Panel 6: Serendipitous Snapshot (Random Image) ---
@@ -297,7 +299,9 @@
             { setup: "What do you call a fish with no eyes?", punchline: "Fsh." },
             { setup: "Did you hear about the restaurant on the moon?", punchline: "Great food, no atmosphere." },
             { setup: "What's the best thing about Switzerland?", punchline: "I don't know, but the flag is a big plus." },
-            { setup: "Why did the bicycle fall over?", punchline: "Because it was two tired!" }
+            { setup: "Why did the bicycle fall over?", punchline: "Because it was two tired!" },
+            { setup: "What do you call cheese that isn't yours?", punchline: "Nacho cheese!" },
+            { setup: "How do you organize a space party?", punchline: "You planet." }
         ];
 
         let currentJokeIndex = -1;
@@ -306,12 +310,12 @@
             let randomIndex;
             do {
                 randomIndex = Math.floor(Math.random() * jokes.length);
-            } while (randomIndex === currentJokeIndex && jokes.length > 1); // Avoid repeating the same joke if possible
+            } while (randomIndex === currentJokeIndex && jokes.length > 1);
             currentJokeIndex = randomIndex;
 
             jokeSetupDisplay.textContent = jokes[currentJokeIndex].setup;
             jokePunchlineDisplay.textContent = jokes[currentJokeIndex].punchline;
-            jokePunchlineDisplay.classList.add('hidden'); // Hide punchline by default
+            jokePunchlineDisplay.classList.add('hidden');
             revealPunchlineButton.classList.remove('hidden');
         }
 
@@ -319,6 +323,85 @@
         revealPunchlineButton.addEventListener('click', () => {
             jokePunchlineDisplay.classList.remove('hidden');
             revealPunchlineButton.classList.add('hidden');
+        });
+
+        // --- Panel 8: Curiosity Capsule (Random Fact Generator) ---
+        const randomFactDisplay = document.getElementById('randomFactDisplay');
+        const generateFactButton = document.getElementById('generateFactButton');
+        const facts = [
+            "A group of owls is called a parliament.",
+            "Octopuses have three hearts.",
+            "A 'jiffy' is an actual unit of time: 1/100th of a second.",
+            "The shortest war in history lasted 38 to 45 minutes (between Britain and Zanzibar in 1896).",
+            "There are more possible iterations of a game of chess than there are atoms in the known universe.",
+            "Bananas are berries, but strawberries aren't.",
+            "The inventor of the Pringles can is buried in one.",
+            "Sharks have been around for more than 400 million years, predating trees.",
+            "A snail can sleep for three years.",
+            "Honey never spoils.",
+            "Cows have best friends.",
+            "The human brain weighs about 3 pounds but uses 20% of the body's oxygen and calories.",
+            "Flamingos can only eat when their heads are upside down.",
+            "Hot water will turn into ice faster than cold water (Mpemba effect).",
+            "Banging your head against a wall for an hour burns 150 calories.",
+            "It is illegal to own just one guinea pig in Switzerland because they are prone to loneliness."
+        ];
+        generateFactButton.addEventListener('click', () => {
+            randomFactDisplay.textContent = facts[Math.floor(Math.random() * facts.length)];
+        });
+
+        // --- Panel 9: Random Word Wizard ---
+        const randomWordDisplay = document.getElementById('randomWordDisplay');
+        const generateWordButton = document.getElementById('generateWordButton');
+        const words = ["Quantum", "Ephemeral", "Nebulous", "Serendipity", "Luminous", "Quasar", "Whimsical", "Obscure", "Paradox", "Zephyr", "Mellifluous", "Ethereal", "Vortex", "Kaleidoscope", "Abyss", "Enigma", "Cosmic", "Surreal", "Mystic", "Infinite"];
+        generateWordButton.addEventListener('click', () => {
+            randomWordDisplay.textContent = words[Math.floor(Math.random() * words.length)];
+        });
+
+        // --- Panel 10: Magic 8-Ball ---
+        const eightBallQuestionInput = document.getElementById('eightBallQuestion');
+        const eightBallAnswerDisplay = document.getElementById('eightBallAnswer');
+        const eightBallButton = document.getElementById('eightBallButton');
+        const eightBallAnswers = [
+            "It is certain.", "It is decidedly so.", "Without a doubt.", "Yes, definitely.", "You may rely on it.",
+            "As I see it, yes.", "Most likely.", "Outlook good.", "Yes.", "Signs point to yes.",
+            "Reply hazy, try again.", "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.",
+            "Don't count on it.", "My reply is no.", "My sources say no.", "Outlook not so good.", "Very doubtful."
+        ];
+        eightBallButton.addEventListener('click', () => {
+            if (eightBallQuestionInput.value.trim() === "") {
+                eightBallAnswerDisplay.textContent = "Please ask a question!";
+            } else {
+                eightBallAnswerDisplay.textContent = eightBallAnswers[Math.floor(Math.random() * eightBallAnswers.length)];
+            }
+        });
+
+        // --- Panel 11: Dice Roller ---
+        const die1Display = document.getElementById('die1Display');
+        const die2Display = document.getElementById('die2Display');
+        const rollDiceButton = document.getElementById('rollDiceButton');
+        rollDiceButton.addEventListener('click', () => {
+            die1Display.textContent = Math.floor(Math.random() * 6) + 1;
+            die2Display.textContent = Math.floor(Math.random() * 6) + 1;
+        });
+
+        // --- Panel 12: Would You Rather ---
+        const wyrQuestionDisplay = document.getElementById('wyrQuestionDisplay');
+        const newWyrButton = document.getElementById('newWyrButton');
+        const wyrQuestions = [
+            "Would you rather fight 100 duck-sized horses or 1 horse-sized duck?",
+            "Would you rather have unlimited bacon, but no games, or unlimited games, but no bacon?",
+            "Would you rather be able to talk to animals or speak all human languages?",
+            "Would you rather have universal respect or unlimited power?",
+            "Would you rather be able to fly or be invisible?",
+            "Would you rather eat only pizza for a year or eat only ice cream for a year?",
+            "Would you rather have a rewind button or a pause button in your life?",
+            "Would you rather live without the internet or live without air conditioning?",
+            "Would you rather lose all your money and valuables or all your photos?",
+            "Would you rather be stranded on a desert island alone or with a frenemy?",
+        ];
+        newWyrButton.addEventListener('click', () => {
+            wyrQuestionDisplay.textContent = wyrQuestions[Math.floor(Math.random() * wyrQuestions.length)];
         });
 
 
@@ -336,6 +419,14 @@
 
             // Joke Panel
             displayNewJoke(); // Load an initial joke
+
+            // Other new panels initial states
+            generateFactButton.click(); // Display initial fact
+            generateWordButton.click(); // Display initial word
+            eightBallAnswerDisplay.textContent = "..."; // Initial 8-ball state
+            die1Display.textContent = "?"; // Initial dice state
+            die2Display.textContent = "?";
+            newWyrButton.click(); // Display initial WYR question
         });
     </script>
 </body>
