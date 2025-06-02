@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Totally Useless Website</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .spin-slow { animation: spin 10s linear infinite; }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-pink-300 via-purple-300 to-blue-300 min-h-screen flex flex-col items-center justify-center text-center p-6 space-y-10 font-mono">
+
+  <h1 class="text-5xl font-bold text-white drop-shadow-md">🥒 Useless Zone™</h1>
+
+  <!-- Random Emoji Button -->
+  <div>
+    <button id="emojiBtn" class="bg-white text-2xl px-6 py-3 rounded-full shadow-lg hover:bg-gray-100 transition">
+      Show Random Emoji
+    </button>
+    <div id="emojiDisplay" class="text-6xl mt-4"></div>
+  </div>
+
+  <!-- Fake Moon Phase -->
+  <div class="bg-white/60 p-4 rounded-lg shadow-lg">
+    <p class="text-lg font-bold">🌙 Current Moon Phase:</p>
+    <p id="moonPhase" class="text-2xl mt-2">Calculating...</p>
+  </div>
+
+  <!-- Spinning Potato -->
+  <div class="flex flex-col items-center space-y-2">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Patates.jpg/320px-Patates.jpg" class="w-24 h-24 rounded-full spin-slow" alt="Potato" />
+    <p class="text-sm text-white">This potato is on a spiritual journey.</p>
+  </div>
+
+  <!-- Rock Paper Scissors vs Cat -->
+  <div class="bg-white p-6 rounded-lg shadow-xl space-y-4">
+    <h2 class="text-xl font-bold">✊ Rock Paper Scissors vs 🐱 Cat</h2>
+    <div class="flex space-x-4 justify-center">
+      <button onclick="playRPS('rock')" class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300">Rock</button>
+      <button onclick="playRPS('paper')" class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300">Paper</button>
+      <button onclick="playRPS('scissors')" class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300">Scissors</button>
+    </div>
+    <p id="rpsResult" class="text-lg font-semibold text-purple-600">Choose wisely...</p>
+  </div>
+
+  <!-- Useless Button -->
+  <button onclick="doNothing()" class="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-all shadow-lg">
+    🔘 Mysterious Button
+  </button>
+
+  <script>
+    const emojiBtn = document.getElementById("emojiBtn");
+    const emojiDisplay = document.getElementById("emojiDisplay");
+    const emojis = ["🤯", "🦖", "💩", "🎩", "🪲", "🚽", "🧻", "🐍", "🐙", "🥸", "🧃", "🪦", "🌮"];
+    
+    emojiBtn.addEventListener("click", () => {
+      const random = emojis[Math.floor(Math.random() * emojis.length)];
+      emojiDisplay.textContent = random;
+    });
+
+    const moonPhaseEl = document.getElementById("moonPhase");
+    const fakePhases = ["Full Banana", "Half Egg", "Waxing Onion", "Waning Waffle", "New Pickle", "Shrunken Meatball"];
+    moonPhaseEl.textContent = fakePhases[Math.floor(Math.random() * fakePhases.length)];
+
+    function playRPS(player) {
+      const options = ["rock", "paper", "scissors"];
+      const catChoice = options[Math.floor(Math.random() * 3)];
+      document.getElementById("rpsResult").textContent = `You chose ${player}. Cat chose ${catChoice}. 🐱 wins. Always.`;
+    }
+
+    function doNothing() {
+      // Literally nothing.
+      console.log("You clicked the mysterious button. Nothing happened. Just how it should be.");
+    }
+  </script>
+
+</body>
+</html>
