@@ -155,6 +155,111 @@
             <button id="newWyrButton" class="mt-4 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50">New Dilemma</button>
         </div>
 
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Hue Harmony</h2>
+            <div id="paletteDisplay" class="flex flex-wrap flex-grow items-center justify-center gap-2 mb-4">
+                <div class="w-12 h-12 rounded-full bg-gray-700"></div>
+                <div class="w-12 h-12 rounded-full bg-gray-700"></div>
+                <div class="w-12 h-12 rounded-full bg-gray-700"></div>
+                <div class="w-12 h-12 rounded-full bg-gray-700"></div>
+                <div class="w-12 h-12 rounded-full bg-gray-700"></div>
+            </div>
+            <button id="generatePalette" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Generate Palette</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Wisdom Weave</h2>
+            <p id="quoteDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">"The only way to do great work is to love what you do."</p>
+            <p id="quoteAuthor" class="text-sm text-gray-400 text-right mt-2">- Steve Jobs</p>
+            <button id="newQuoteButton" class="mt-4 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">New Quote</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">ASCII Animator</h2>
+            <pre id="asciiArtDisplay" class="text-xs md:text-sm lg:text-base text-purple-400 text-center bg-gray-800 p-2 rounded-md overflow-auto whitespace-pre-wrap flex-grow flex items-center justify-center">
+            (>^_^)>
+            </pre>
+            <button id="newAsciiButton" class="mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">Animate</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Critter Chorus</h2>
+            <p id="animalSoundName" class="text-3xl font-extrabold text-lime-400 text-center mb-4 flex-grow flex items-center justify-center">?</p>
+            <button id="playAnimalSound" class="mt-4 bg-lime-600 hover:bg-lime-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-opacity-50">Play Sound</button>
+            <audio id="animalSoundAudio" class="hidden"></audio>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Kindness Konsole</h2>
+            <p id="complimentDisplay" class="text-xl italic text-yellow-300 text-center flex-grow flex items-center justify-center">You are awesome!</p>
+            <button id="newComplimentButton" class="mt-4 bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50">New Compliment</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Numerical Nuggets</h2>
+            <p id="numberFactDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">Discover a random number's secret!</p>
+            <button id="generateNumberFactButton" class="mt-4 bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50">New Number Fact</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Global Gazetteer</h2>
+            <p id="countryDisplay" class="text-xl font-bold text-blue-400 text-center flex-grow flex items-center justify-center">Country: ?</p>
+            <p id="capitalDisplay" class="text-lg text-gray-300 text-center">Capital: ?</p>
+            <button id="generateCountryButton" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">New Country</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">RGB Revelations</h2>
+            <div id="rgbDisplay" class="w-full h-24 rounded-md mb-4" style="background-color: rgb(0,0,0);"></div>
+            <p id="rgbValue" class="text-lg font-mono text-center">rgb(0,0,0)</p>
+            <button id="generateRGBButton" class="mt-4 bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 focus:ring-opacity-50">New RGB</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Nimbus Nook</h2>
+            <p id="weatherForecast" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">Sunny with a chance of randomness!</p>
+            <button id="newWeatherButton" class="mt-4 bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50">Get Forecast</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Narrative Nexus</h2>
+            <p id="storyStarterDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">The old lighthouse keeper...</p>
+            <button id="newStoryButton" class="mt-4 bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-opacity-50">New Story Idea</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Unit Unifier</h2>
+            <p id="unitConversionDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">10 miles = 16.09 kilometers</p>
+            <button id="newUnitButton" class="mt-4 bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-50">New Conversion</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Gradient Gallery</h2>
+            <div id="gradientBox" class="w-full h-24 rounded-md mb-4" style="background: linear-gradient(to right, #ff7e5f, #feb47b);"></div>
+            <p id="gradientCSS" class="text-xs font-mono text-center break-all">background: linear-gradient(...);</p>
+            <button id="newGradientButton" class="mt-4 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50">New Gradient</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Geometric Glimpse</h2>
+            <div id="shapeDisplay" class="w-24 h-24 bg-red-500 rounded-lg mx-auto flex-grow flex items-center justify-center mb-4"></div>
+            <p id="shapeName" class="text-xl text-center text-gray-300">Square</p>
+            <button id="newShapeButton" class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-50">New Shape</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Celeb Synthesizer</h2>
+            <p id="celebrityName" class="text-3xl font-bold text-emerald-400 text-center flex-grow flex items-center justify-center">Ava Johnson</p>
+            <button id="newCelebrityButton" class="mt-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-opacity-50">New Star</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Emoji Echo</h2>
+            <p id="emojiSequenceDisplay" class="text-4xl text-center flex-grow flex items-center justify-center">✨🚀👾</p>
+            <button id="newEmojiSequenceButton" class="mt-4 bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50">Generate Sequence</button>
+        </div>
+
+
     </div>
 
     <script>
@@ -175,6 +280,10 @@
             }
         }
 
+        function getRandomHexColor() {
+            return `#${Math.floor(Math.random()*16777215).toString(16).padStart(6, '0')}`;
+        }
+
         // --- Panel 1: Color Crafter ---
         const colorPicker = document.getElementById('colorPicker');
         const randomColorButton = document.getElementById('randomColorButton');
@@ -186,7 +295,7 @@
         });
 
         randomColorButton.addEventListener('click', () => {
-            const randomHexColor = `#${Math.floor(Math.random()*16777215).toString(16).padStart(6, '0')}`;
+            const randomHexColor = getRandomHexColor();
             colorPicker.value = randomHexColor;
             updateColorDisplay(randomHexColor);
         });
@@ -217,16 +326,12 @@
             if (confirm("EXTREME WARNING: This action is designed to severely stress your device and may cause it to become completely unresponsive, requiring a hard restart. This is NOT reversible once started. Do you want to proceed?")) {
                 let crashArray = [];
                 let i = 0;
-                // This tight loop combined with memory allocation will rapidly consume resources
-                // and should make the device unresponsive very quickly.
                 while (true) {
-                    crashArray.push(new Array(1000).fill(Math.random()).join('')); // Allocate large strings
-                    // Also perform some heavy math to hog CPU
+                    crashArray.push(new Array(1000).fill(Math.random()).join(''));
                     for (let j = 0; j < 1000; j++) {
                         Math.sqrt(Math.pow(j, 2) + Math.pow(j + 1, 2));
                     }
                     i++;
-                    // console.log("Crashing...", i); // Do NOT uncomment on mobile!
                 }
             }
         });
@@ -238,24 +343,16 @@
         const spinningItemSources = {
             donut: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Glazed-Donut.jpg/640px-Glazed-Donut.jpg",
             pizza: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Pizza.jpg/640px-Pizza.jpg",
-            globe: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Earth_from_Apollo_17.jpg/640px-Earth_from_Apollo_17.jpg", // A slightly different, good globe image
-            rubiks_cube: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Rubik%27s_Cube_animated.gif/150px-Rubik%27s_Cube_animated.gif", // Common Rubik's cube GIF
-            star: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Twinkle_star_animation.gif/100px-Twinkle_star_animation.gif" // A simple star GIF
+            globe: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Earth_from_Apollo_17.jpg/640px-Earth_from_Apollo_17.jpg",
+            rubiks_cube: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Rubik%27s_Cube_animated.gif/150px-Rubik%27s_Cube_animated.gif",
+            star: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Twinkle_star_animation.gif/100px-Twinkle_star_animation.gif"
         };
 
         spinningItemSelector.addEventListener('change', (event) => {
             const selectedSrc = spinningItemSources[event.target.value];
-
-            // Add a cache-busting parameter to force reload
-            const uniqueSrc = `${selectedSrc}?t=${Date.now()}`;
-
+            const uniqueSrc = `${selectedSrc}?t=${Date.now()}`; // Cache-busting
             spinningItem.src = uniqueSrc;
-            spinningItem.classList.remove('hidden'); // Ensure it's visible
-            
-            // Optional: Add a temporary loading state for very slow images
-            // spinningItem.style.opacity = 0.5; // Example: dim while loading
-            // spinningItem.onload = () => { spinningItem.style.opacity = 1; };
-            // spinningItem.onerror = () => { console.error('Failed to load image:', uniqueSrc); spinningItem.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIxNiIgZmlsbD0iI0YzRDk1QiIvPjxwYXRoIGQ9Ik0zMiA2NFMyMi45Njg4IDYyLjY0MDYgMTYgNTZDMTAuNzM0NCA1Mi40Mzc1IDAgNDguMTg3NSAwIDMyQzAgMTUuODEyNSA0Ljc4MTI1IDEwLjUyMzQgMTYgNEMyMi45Njg4IDAgMzIgMCAzMiAwVjY0WiIgZmlsbD0iIzE2NzY5NyIvPjwvc3ZnPg=='; }; // Fallback to a tiny SVG placeholder
+            spinningItem.classList.remove('hidden');
         });
 
         // --- Panel 6: Serendipitous Snapshot (Random Image) ---
@@ -266,7 +363,7 @@
         const imageError = document.getElementById('imageError');
         const generateImageButton = document.getElementById('generateImage');
 
-        const imageUrl = 'https://picsum.photos/400/300'; // Reliable random image source
+        const imageUrl = 'https://picsum.photos/400/300';
 
         generateImageButton.addEventListener('click', () => {
             imagePlaceholder.classList.add('hidden');
@@ -410,6 +507,286 @@
             wyrQuestionDisplay.textContent = wyrQuestions[Math.floor(Math.random() * wyrQuestions.length)];
         });
 
+        // --- NEW PANEL 13: Random Color Palette Generator ---
+        const paletteDisplay = document.getElementById('paletteDisplay');
+        const generatePaletteButton = document.getElementById('generatePalette');
+
+        function generateRandomPalette() {
+            paletteDisplay.innerHTML = ''; // Clear previous palette
+            for (let i = 0; i < 5; i++) {
+                const colorDiv = document.createElement('div');
+                colorDiv.className = 'w-12 h-12 rounded-full';
+                colorDiv.style.backgroundColor = getRandomHexColor();
+                paletteDisplay.appendChild(colorDiv);
+            }
+        }
+        generatePaletteButton.addEventListener('click', generateRandomPalette);
+
+        // --- NEW PANEL 14: Random Inspirational Quote ---
+        const quoteDisplay = document.getElementById('quoteDisplay');
+        const quoteAuthor = document.getElementById('quoteAuthor');
+        const newQuoteButton = document.getElementById('newQuoteButton');
+        const quotes = [
+            { quote: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { quote: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+            { quote: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
+            { quote: "Strive not to be a success, but rather to be of value.", author: "Albert Einstein" },
+            { quote: "The best way to predict the future is to create it.", author: "Peter Drucker" },
+            { quote: "The mind is everything. What you think you become.", author: "Buddha" },
+            { quote: "Happiness is not something ready made. It comes from your own actions.", author: "Dalai Lama XIV" },
+            { quote: "What you get by achieving your goals is not as important as what you become by achieving your goals.", author: "Zig Ziglar" },
+            { quote: "The greater danger for most of us lies not in setting our aim too high and falling short; but in setting our aim too low, and achieving our mark.", author: "Michelangelo" },
+            { quote: "If you want to lift yourself up, lift up someone else.", author: "Booker T. Washington" }
+        ];
+        newQuoteButton.addEventListener('click', () => {
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            quoteDisplay.textContent = `"${randomQuote.quote}"`;
+            quoteAuthor.textContent = `- ${randomQuote.author}`;
+        });
+
+        // --- NEW PANEL 15: Random ASCII Art ---
+        const asciiArtDisplay = document.getElementById('asciiArtDisplay');
+        const newAsciiButton = document.getElementById('newAsciiButton');
+        const asciiArt = [
+            "  (>^_^)>",
+            " (~_^~)  ",
+            "  >_o  ",
+            " / \\_/ \\",
+            " (='.'=)",
+            " o(>.<)o",
+            "  ( o.o)",
+            " ( ^_^)",
+            "  (°-°)",
+            " ( x_x)",
+            " (^v^)",
+            "  (o_o)",
+            " (o_o;) "
+        ];
+        newAsciiButton.addEventListener('click', () => {
+            asciiArtDisplay.textContent = asciiArt[Math.floor(Math.random() * asciiArt.length)];
+        });
+
+        // --- NEW PANEL 16: Random Animal Sound ---
+        const animalSoundName = document.getElementById('animalSoundName');
+        const playAnimalSoundButton = document.getElementById('playAnimalSound');
+        const animalSoundAudio = document.getElementById('animalSoundAudio');
+        const animalSounds = [
+            { name: "Dog", file: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" }, // Placeholder, actual sound file needed
+            { name: "Cat", file: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" }, // Placeholder
+            { name: "Cow", file: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" }, // Placeholder
+            { name: "Bird", file: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" }, // Placeholder
+            { name: "Lion", file: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" } // Placeholder
+            // IMPORTANT: Replace with actual, short sound file URLs (e.g., .wav, .mp3 from a public domain or CDN)
+            // Example: { name: "Dog", file: "https://s.cdpn.io/3/dog.mp3" } if available and public
+        ];
+        playAnimalSoundButton.addEventListener('click', () => {
+            const randomSound = animalSounds[Math.floor(Math.random() * animalSounds.length)];
+            animalSoundName.textContent = randomSound.name;
+            animalSoundAudio.src = randomSound.file;
+            animalSoundAudio.play().catch(e => console.error("Error playing sound:", e)); // Catch Promise rejection
+        });
+
+        // --- NEW PANEL 17: Random Compliment Generator ---
+        const complimentDisplay = document.getElementById('complimentDisplay');
+        const newComplimentButton = document.getElementById('newComplimentButton');
+        const compliments = [
+            "You are brilliant!",
+            "Your creativity is inspiring.",
+            "You make a difference.",
+            "You have impeccable taste.",
+            "Your kindness shines through.",
+            "You're a joy to be around.",
+            "You're incredibly resilient.",
+            "Your smile is contagious.",
+            "You have great ideas.",
+            "You are truly unique."
+        ];
+        newComplimentButton.addEventListener('click', () => {
+            complimentDisplay.textContent = compliments[Math.floor(Math.random() * compliments.length)];
+        });
+
+        // --- NEW PANEL 18: Random Fun Fact (Numbers) ---
+        const numberFactDisplay = document.getElementById('numberFactDisplay');
+        const generateNumberFactButton = document.getElementById('generateNumberFactButton');
+        const numberFacts = [
+            "0 is the only number that cannot be represented by Roman numerals.",
+            "1 is the smallest natural number.",
+            "2 is the only even prime number.",
+            "3 is the smallest odd prime number.",
+            "4 is the smallest composite number.",
+            "6 is the first perfect number (sum of its divisors excluding itself equals itself).",
+            "7 is considered a lucky number in many cultures.",
+            "9 is the highest single digit.",
+            "13 is considered unlucky in some Western cultures (triskaidekaphobia).",
+            "42 is the 'Answer to the Ultimate Question of Life, the Universe, and Everything' in The Hitchhiker's Guide to the Galaxy.",
+            "100 is the number of years in a century."
+        ];
+        generateNumberFactButton.addEventListener('click', () => {
+            numberFactDisplay.textContent = numberFacts[Math.floor(Math.random() * numberFacts.length)];
+        });
+
+        // --- NEW PANEL 19: Random Country & Capital ---
+        const countryDisplay = document.getElementById('countryDisplay');
+        const capitalDisplay = document.getElementById('capitalDisplay');
+        const generateCountryButton = document.getElementById('generateCountryButton');
+        const countries = [
+            { country: "Japan", capital: "Tokyo" },
+            { country: "Canada", capital: "Ottawa" },
+            { country: "Brazil", capital: "Brasília" },
+            { country: "Australia", capital: "Canberra" },
+            { country: "Egypt", capital: "Cairo" },
+            { country: "Germany", capital: "Berlin" },
+            { country: "India", capital: "New Delhi" },
+            { country: "Mexico", capital: "Mexico City" },
+            { country: "South Africa", capital: "Pretoria" },
+            { country: "New Zealand", capital: "Wellington" }
+        ];
+        generateCountryButton.addEventListener('click', () => {
+            const randomCountry = countries[Math.floor(Math.random() * countries.length)];
+            countryDisplay.textContent = `Country: ${randomCountry.country}`;
+            capitalDisplay.textContent = `Capital: ${randomCountry.capital}`;
+        });
+
+        // --- NEW PANEL 20: Random RGB Color Display ---
+        const rgbDisplay = document.getElementById('rgbDisplay');
+        const rgbValue = document.getElementById('rgbValue');
+        const generateRGBButton = document.getElementById('generateRGBButton');
+        generateRGBButton.addEventListener('click', () => {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            const rgbString = `rgb(${r},${g},${b})`;
+            rgbDisplay.style.backgroundColor = rgbString;
+            rgbValue.textContent = rgbString;
+        });
+
+        // --- NEW PANEL 21: Random Weather Forecast (mock) ---
+        const weatherForecastDisplay = document.getElementById('weatherForecast');
+        const newWeatherButton = document.getElementById('newWeatherButton');
+        const weatherConditions = [
+            "Sunny with a chance of existential dread.",
+            "Mostly cloudy, prepare for unexpected thoughts.",
+            "Light rain, perfect for introspection.",
+            "Heavy fog, clarity is overrated anyway.",
+            "Clear skies, a perfect day for chaos.",
+            "Windy, ideas are blowing in.",
+            "Partly cloudy, with a possibility of spontaneous joy."
+        ];
+        newWeatherButton.addEventListener('click', () => {
+            weatherForecastDisplay.textContent = weatherConditions[Math.floor(Math.random() * weatherConditions.length)];
+        });
+
+        // --- NEW PANEL 22: Random Story Starter ---
+        const storyStarterDisplay = document.getElementById('storyStarterDisplay');
+        const newStoryButton = document.getElementById('newStoryButton');
+        const storyStarters = [
+            "The old lighthouse keeper found a message in a bottle, but it wasn't what he expected...",
+            "In a city where gravity sometimes reversed, getting to work was always an adventure...",
+            "She woke up to find a peculiar device humming on her nightstand, with a single button labeled 'Reset'.",
+            "The last dragon in the world lived in a suburban garage, disguised as a garden gnome.",
+            "He could taste colors, and today, everything tasted like sadness.",
+            "The ancient map led them not to treasure, but to a doorway that hummed with a forgotten language.",
+            "Every time she sneezed, a small, harmless burst of glitter appeared.",
+            "The robotic butler had been perfect, until it started developing a sense of humor.",
+            "They said the old bakery made the best bread, but they never mentioned how it made you remember past lives.",
+            "The new AI assistant was incredibly helpful, perhaps too helpful, predicting his needs before he even knew them."
+        ];
+        newStoryButton.addEventListener('click', () => {
+            storyStarterDisplay.textContent = storyStarters[Math.floor(Math.random() * storyStarters.length)];
+        });
+
+        // --- NEW PANEL 23: Random Unit Conversion ---
+        const unitConversionDisplay = document.getElementById('unitConversionDisplay');
+        const newUnitButton = document.getElementById('newUnitButton');
+        const unitConversions = [
+            { value: 10, from: "miles", to: "kilometers", factor: 1.60934, precision: 2 },
+            { value: 50, from: "pounds", to: "kilograms", factor: 0.453592, precision: 2 },
+            { value: 25, from: "Celsius", to: "Fahrenheit", formula: (c) => (c * 9/5) + 32, precision: 1 },
+            { value: 100, from: "feet", to: "meters", factor: 0.3048, precision: 2 },
+            { value: 5, from: "gallons", to: "liters", factor: 3.78541, precision: 2 },
+            { value: 1000, from: "bytes", to: "kilobytes", factor: 0.001, precision: 3 }, // Using 1000 for simplicity here, not 1024
+            { value: 36, from: "inches", to: "centimeters", factor: 2.54, precision: 2 },
+            { value: 72, from: "km/h", to: "mph", factor: 0.621371, precision: 1 }
+        ];
+        newUnitButton.addEventListener('click', () => {
+            const conversion = unitConversions[Math.floor(Math.random() * unitConversions.length)];
+            let result;
+            if (conversion.formula) {
+                result = conversion.formula(conversion.value);
+            } else {
+                result = conversion.value * conversion.factor;
+            }
+            unitConversionDisplay.textContent = `${conversion.value} ${conversion.from} = ${result.toFixed(conversion.precision)} ${conversion.to}`;
+        });
+
+        // --- NEW PANEL 24: Random CSS Gradient Generator ---
+        const gradientBox = document.getElementById('gradientBox');
+        const gradientCSS = document.getElementById('gradientCSS');
+        const newGradientButton = document.getElementById('newGradientButton');
+        newGradientButton.addEventListener('click', () => {
+            const color1 = getRandomHexColor();
+            const color2 = getRandomHexColor();
+            const angle = Math.floor(Math.random() * 360);
+            const gradientType = Math.random() > 0.5 ? 'linear' : 'radial';
+
+            let cssString = '';
+            if (gradientType === 'linear') {
+                cssString = `linear-gradient(${angle}deg, ${color1}, ${color2})`;
+            } else {
+                cssString = `radial-gradient(circle, ${color1}, ${color2})`;
+            }
+
+            gradientBox.style.background = cssString;
+            gradientCSS.textContent = `background: ${cssString};`;
+        });
+
+        // --- NEW PANEL 25: Random Geometric Shape ---
+        const shapeDisplay = document.getElementById('shapeDisplay');
+        const shapeNameDisplay = document.getElementById('shapeName');
+        const newShapeButton = document.getElementById('newShapeButton');
+        const shapes = [
+            { name: "Square", css: "width: 24px; height: 24px; border-radius: 0; transform: rotate(0deg);" },
+            { name: "Circle", css: "width: 24px; height: 24px; border-radius: 50%; transform: rotate(0deg);" },
+            { name: "Triangle", css: "width: 0; height: 0; border-left: 12px solid transparent; border-right: 12px solid transparent; border-bottom: 24px solid; transform: rotate(0deg);" },
+            { name: "Rounded Square", css: "width: 24px; height: 24px; border-radius: 8px; transform: rotate(0deg);" },
+            { name: "Diamond", css: "width: 24px; height: 24px; border-radius: 0; transform: rotate(45deg);" }
+        ];
+        newShapeButton.addEventListener('click', () => {
+            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+            const randomColor = getRandomHexColor();
+
+            // Clear previous styles that might interfere with new shape
+            shapeDisplay.style = '';
+            shapeDisplay.className = 'w-24 h-24 mx-auto flex-grow flex items-center justify-center mb-4'; // Reset classes
+
+            // Apply new shape styles
+            shapeDisplay.style.cssText = `background-color: ${randomColor}; ${randomShape.css}`;
+            shapeNameDisplay.textContent = randomShape.name;
+        });
+
+        // --- NEW PANEL 26: Random Celebrity Name Generator (Mock) ---
+        const celebrityNameDisplay = document.getElementById('celebrityName');
+        const newCelebrityButton = document.getElementById('newCelebrityButton');
+        const firstNames = ["Ava", "Liam", "Olivia", "Noah", "Emma", "Oliver", "Charlotte", "Elijah", "Amelia", "James", "Sophia", "Benjamin", "Isabella", "Lucas", "Mia", "Henry", "Evelyn", "Alexander", "Harper", "Sebastian"];
+        const lastNames = ["Smith", "Jones", "Williams", "Brown", "Davis", "Miller", "Wilson", "Moore", "Taylor", "Anderson", "Thomas", "Jackson", "White", "Harris", "Martin", "Thompson", "Garcia", "Martinez", "Robinson", "Clark"];
+        newCelebrityButton.addEventListener('click', () => {
+            const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+            const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+            celebrityNameDisplay.textContent = `${randomFirstName} ${randomLastName}`;
+        });
+
+        // --- NEW PANEL 27: Random Emoji Sequence ---
+        const emojiSequenceDisplay = document.getElementById('emojiSequenceDisplay');
+        const newEmojiSequenceButton = document.getElementById('newEmojiSequenceButton');
+        newEmojiSequenceButton.addEventListener('click', () => {
+            let sequence = '';
+            const length = Math.floor(Math.random() * 4) + 2; // 2 to 5 emojis
+            for (let i = 0; i < length; i++) {
+                sequence += emojis[Math.floor(Math.random() * emojis.length)];
+            }
+            emojiSequenceDisplay.textContent = sequence;
+        });
+
 
         // --- Initialize Display States on Page Load ---
         document.addEventListener('DOMContentLoaded', () => {
@@ -426,13 +803,30 @@
             // Joke Panel
             displayNewJoke(); // Load an initial joke
 
-            // Other new panels initial states
-            generateFactButton.click(); // Display initial fact
-            generateWordButton.click(); // Display initial word
-            eightBallAnswerDisplay.textContent = "..."; // Initial 8-ball state
-            die1Display.textContent = "?"; // Initial dice state
+            // Other existing panels initial states
+            generateFactButton.click();
+            generateWordButton.click();
+            eightBallAnswerDisplay.textContent = "...";
+            die1Display.textContent = "?";
             die2Display.textContent = "?";
-            newWyrButton.click(); // Display initial WYR question
+            newWyrButton.click();
+
+            // Initialize new panels
+            generatePaletteButton.click();
+            newQuoteButton.click();
+            newAsciiButton.click();
+            animalSoundName.textContent = "Click to play!"; // Initial text for sound
+            newComplimentButton.click();
+            generateNumberFactButton.click();
+            generateCountryButton.click();
+            generateRGBButton.click();
+            newWeatherButton.click();
+            newStoryButton.click();
+            newUnitButton.click();
+            newGradientButton.click();
+            newShapeButton.click();
+            newCelebrityButton.click();
+            newEmojiSequenceButton.click();
         });
     </script>
 </body>
