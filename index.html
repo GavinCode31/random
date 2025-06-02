@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>🧠 Ultimate Pointless Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>💥 Useless Central</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .spin-slow {
@@ -22,80 +23,167 @@
       75% { background-color: blue; }
       100% { background-color: magenta; }
     }
+    @keyframes hop {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .hop {
+      animation: hop 1s ease-in-out;
+    }
   </style>
 </head>
-<body class="bg-pink-200 min-h-screen text-center flex flex-col items-center justify-center p-6 space-y-8 font-mono transition-all" id="body">
+<body class="bg-pink-200 min-h-screen text-center flex flex-col items-center justify-center p-6 space-y-6 font-mono transition-all" id="body">
 
-  <h1 class="text-4xl font-extrabold">🧠 Welcome to Ultimate Uselessness</h1>
+  <h1 class="text-4xl font-extrabold">💥 Useless Central</h1>
 
-  <!-- Spinning Donut -->
+  <!-- 🍩 Spinning Donut -->
   <div>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Doughnut-1024x683.jpg/320px-Doughnut-1024x683.jpg" 
-         class="rounded-full w-24 h-24 spin-slow shadow-xl" alt="Donut of Chaos">
-    <p class="mt-2 text-sm italic">The donut sees all.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Glazed-Donut.jpg/320px-Glazed-Donut.jpg"
+         alt="Donut of Chaos"
+         class="rounded-full w-24 h-24 spin-slow shadow-xl">
+    <p class="mt-1 italic text-sm">All hail the sacred donut.</p>
   </div>
 
-  <!-- Random Sound (but fake) -->
-  <button onclick="playFakeSound()" class="bg-purple-500 text-white px-6 py-2 rounded-full shadow hover:bg-purple-600">
-    🔊 Play Random Sound (doesn’t actually)
-  </button>
-  <p id="soundText" class="text-sm text-gray-700"></p>
+  <!-- 🔊 Fake Sound Button -->
+  <button onclick="playFakeSound()" class="bg-purple-500 text-white px-6 py-2 rounded-full hover:bg-purple-700 shadow">🔊 Fake Sound</button>
+  <p id="soundText" class="text-sm"></p>
 
-  <!-- Inspirational Squirrel Quotes -->
-  <div class="bg-white/70 p-4 rounded shadow-md w-72">
-    <h2 class="font-bold text-lg">🐿️ Squirrel Wisdom:</h2>
+  <!-- 🐿️ Squirrel Quotes -->
+  <div class="bg-white p-4 rounded shadow-md w-72">
+    <h2 class="font-bold text-lg">🐿️ Squirrel Wisdom</h2>
     <p id="quote" class="mt-2">Click below to get wise.</p>
-    <button onclick="getSquirrelQuote()" class="mt-3 px-4 py-2 bg-yellow-300 hover:bg-yellow-400 rounded">Enlighten Me</button>
+    <button onclick="getSquirrelQuote()" class="mt-3 bg-yellow-300 px-4 py-2 rounded hover:bg-yellow-400">Enlighten Me</button>
   </div>
 
-  <!-- Invisible Button -->
-  <button onclick="secretButton()" class="invisible w-20 h-20 absolute top-0 left-0"></button>
+  <!-- 🥷 Invisible Button -->
+  <button onclick="secretButton()" class="absolute top-0 left-0 w-20 h-20 invisible">Secret</button>
 
-  <!-- Panic Button -->
-  <button onclick="panic()" class="bg-red-600 text-white font-bold px-6 py-3 rounded-full hover:bg-red-700 shadow-lg">
-    🚨 PANIC
-  </button>
-  <p id="panicMessage" class="text-sm text-red-800 font-bold"></p>
+  <!-- 🚨 Panic Button -->
+  <button onclick="panic()" class="bg-red-600 text-white font-bold px-6 py-2 rounded-full hover:bg-red-700 shadow">🚨 PANIC</button>
+  <p id="panicMessage" class="text-red-800 font-bold text-sm"></p>
 
-  <!-- Disco Mode Toggle -->
-  <button onclick="toggleDisco()" class="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-800 shadow">
-    🕺 Toggle Disco Mode
-  </button>
+  <!-- 🕺 Disco Mode -->
+  <button onclick="toggleDisco()" class="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800">🕺 Toggle Disco Mode</button>
+
+  <!-- 🧃 Juice Button -->
+  <button onclick="alert('🍹 You drank imaginary juice. Feel refreshed?')" class="bg-green-400 px-4 py-2 rounded-full hover:bg-green-500">🧃 Get Juice</button>
+
+  <!-- 🎲 Dice Roll -->
+  <div>
+    <p class="text-lg font-bold">🎲 Roll the Dice of Uselessness</p>
+    <button onclick="rollDice()" class="bg-blue-400 px-4 py-2 rounded hover:bg-blue-500">Roll</button>
+    <p id="diceResult" class="mt-2"></p>
+  </div>
+
+  <!-- 🕹️ Fake Loading Bar -->
+  <div class="w-64 bg-gray-300 rounded h-4 overflow-hidden mt-4">
+    <div id="fakeBar" class="bg-indigo-500 h-full w-0"></div>
+  </div>
+  <button onclick="loadBar()" class="text-sm text-indigo-700">Load Something Pointless</button>
+
+  <!-- 📦 Mystery Box -->
+  <button onclick="mysteryBox()" class="bg-orange-400 px-4 py-2 rounded hover:bg-orange-500">📦 Open Mystery Box</button>
+  <p id="mysteryResult" class="italic text-sm"></p>
+
+  <!-- 🧠 Brain Enlarger -->
+  <button onclick="brainGrow()" class="bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-900">🧠 Enlarge Brain</button>
+  <p id="brainMsg" class="text-sm text-gray-700"></p>
+
+  <!-- 🐸 Frog Emoji Hops -->
+  <div id="frog" class="text-4xl">🐸</div>
+
+  <!-- 🍕 Pizza Rating -->
+  <div class="flex flex-col items-center">
+    <label for="pizza" class="text-lg font-bold">🍕 Rate This Pizza (why?)</label>
+    <input type="range" id="pizza" min="0" max="10" class="w-64 mt-2" oninput="updatePizza(this.value)">
+    <p id="pizzaRating" class="text-sm"></p>
+  </div>
+
+  <!-- 🌈 Rainbow Bar -->
+  <div class="w-64 h-4 rounded mt-4 border border-black" id="rainbowBar"></div>
+  <button onclick="randomizeRainbow()" class="text-sm mt-1">🌈 Make It Weird</button>
+
+  <!-- 💩 Poop Counter -->
+  <button onclick="addPoop()" class="bg-brown-500 px-4 py-2 rounded-full hover:bg-brown-600">💩 Add Poop</button>
+  <p id="poopCount" class="text-2xl">💩 x0</p>
 
   <script>
     function playFakeSound() {
-      const sounds = ["🎷 Jazz explosion!", "🐸 Frog slap!", "🛸 Alien burp!", "🍌 Banana peel scream!", "🧃 Juice box burst!"];
-      document.getElementById("soundText").textContent = "🔊 " + sounds[Math.floor(Math.random() * sounds.length)];
+      const sounds = ["🪗 Accordion slam!", "🐔 Chicken techno!", "📢 Reverse scream!", "💎 Minecraft villager huh!"];
+      document.getElementById("soundText").textContent = sounds[Math.floor(Math.random() * sounds.length)];
     }
 
     function getSquirrelQuote() {
       const quotes = [
-        "“Sometimes... you just gotta store that nut.” – Squirrel, 2023",
-        "“The tree is not the limit.” – Sir Squirrleton",
-        "“Leap, even if you miss the branch.”",
-        "“Acorns before dawn.”",
-        "“Chaos is just misplaced snacks.”"
+        "“Leap before you think.”",
+        "“Store the nut today, regret never.”",
+        "“All trees lead somewhere.”",
+        "“Chaos is just future order.”"
       ];
       document.getElementById("quote").textContent = quotes[Math.floor(Math.random() * quotes.length)];
     }
 
     function secretButton() {
-      alert("🥷 You found the invisible button. You win nothing.");
+      alert("🎯 You clicked air and it counted.");
     }
 
     function panic() {
-      const message = "⚠️ Deleting all your files... just kidding. Or am I?";
-      document.getElementById("panicMessage").textContent = message;
+      document.getElementById("panicMessage").textContent = "🧨 Launching self-destruct in... never.";
       setTimeout(() => {
         document.getElementById("panicMessage").textContent = "";
-      }, 4000);
+      }, 3000);
     }
 
     function toggleDisco() {
-      const body = document.getElementById("body");
-      body.classList.toggle("disco");
+      document.getElementById("body").classList.toggle("disco");
+    }
+
+    function rollDice() {
+      const outcomes = ["Nothing happened.", "You gained a sock!", "A pigeon winked at you.", "Instant regret.", "Legendary fart noise heard."];
+      document.getElementById("diceResult").textContent = outcomes[Math.floor(Math.random() * outcomes.length)];
+    }
+
+    function loadBar() {
+      let bar = document.getElementById("fakeBar");
+      bar.style.width = "0%";
+      let i = 0;
+      let interval = setInterval(() => {
+        if (i >= 100) return clearInterval(interval);
+        i += 5;
+        bar.style.width = i + "%";
+      }, 100);
+    }
+
+    function mysteryBox() {
+      const items = ["🪤 Mouse trap (why?)", "🎈 Floating nothingness", "📎 A really big paperclip", "🧼 Soapy sock", "🦑 Baby squid"];
+      document.getElementById("mysteryResult").textContent = "You got: " + items[Math.floor(Math.random() * items.length)];
+    }
+
+    function brainGrow() {
+      document.getElementById("brainMsg").textContent = "🧠 Your brain is now 0.02% more random.";
+    }
+
+    // 🐸 Hopping frog
+    setInterval(() => {
+      let frog = document.getElementById("frog");
+      frog.classList.add("hop");
+      setTimeout(() => frog.classList.remove("hop"), 1000);
+    }, 3000);
+
+    function updatePizza(val) {
+      document.getElementById("pizzaRating").textContent = `Rated ${val}/10. Totally matters.`;
+    }
+
+    function randomizeRainbow() {
+      const colors = ["#ff0000", "#ffa500", "#ffff00", "#00ff00", "#0000ff", "#4b0082", "#ee82ee"];
+      document.getElementById("rainbowBar").style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    let poop = 0;
+    function addPoop() {
+      poop++;
+      document.getElementById("poopCount").textContent = `💩 x${poop}`;
     }
   </script>
-
 </body>
 </html>
