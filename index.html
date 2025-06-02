@@ -166,9 +166,8 @@
         const imageError = document.getElementById('imageError');
         const generateImageButton = document.getElementById('generateImage');
 
-        // Unsplash source URL for random images - more generic to increase success rate
-        // Using '400x300' is a good size. We don't add categories to make it more reliable.
-        const unsplashRandomUrl = 'https://source.unsplash.com/random/400x300';
+        // *** CHANGED THIS URL TO PICSUM PHOTOS FOR RELIABILITY ***
+        const imageUrl = 'https://picsum.photos/400/300'; // More reliable random image source
 
         generateImageButton.addEventListener('click', () => {
             // Hide all potential messages and the image, show loading indicator
@@ -177,23 +176,20 @@
             randomImage.classList.add('hidden');
             imageLoadingIndicator.classList.remove('hidden');
 
-            // Add a timestamp to the URL to ensure a fresh image is loaded every time
-            // The '?' makes it a query parameter, which is standard for cache-busting.
-            randomImage.src = `${unsplashRandomUrl}?${new Date().getTime()}`;
+            // Add a unique timestamp to the URL to ensure a fresh image is loaded every time
+            randomImage.src = `${imageUrl}?random=${new Date().getTime()}`;
 
             randomImage.onload = () => {
                 imageLoadingIndicator.classList.add('hidden');
                 randomImage.classList.remove('hidden');
-                // Ensure placeholder is hidden after successful load
-                imagePlaceholder.classList.add('hidden');
+                imagePlaceholder.classList.add('hidden'); // Ensure placeholder is hidden after successful load
             };
 
             randomImage.onerror = () => {
                 imageLoadingIndicator.classList.add('hidden');
                 imageError.classList.remove('hidden');
                 randomImage.classList.add('hidden'); // Keep image hidden on error
-                // Ensure placeholder is hidden on error
-                imagePlaceholder.classList.add('hidden');
+                imagePlaceholder.classList.add('hidden'); // Ensure placeholder is hidden on error
             };
         });
 
