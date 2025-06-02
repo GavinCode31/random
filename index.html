@@ -238,18 +238,24 @@
         const spinningItemSources = {
             donut: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Glazed-Donut.jpg/640px-Glazed-Donut.jpg",
             pizza: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Pizza.jpg/640px-Pizza.jpg",
-            globe: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/The_Earth_seen_from_Apollo_17.jpg/640px-The_Earth_seen_from_Apollo_17.jpg",
-            rubiks_cube: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Rubik%27s_cube_animated.gif/200px-Rubik%27s_cube_animated.gif", // A GIF!
-            star: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Star_animation_01.gif/640px-Star_animation_01.gif" // Another GIF!
+            globe: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Earth_from_Apollo_17.jpg/640px-Earth_from_Apollo_17.jpg", // A slightly different, good globe image
+            rubiks_cube: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Rubik%27s_Cube_animated.gif/150px-Rubik%27s_Cube_animated.gif", // Common Rubik's cube GIF
+            star: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Twinkle_star_animation.gif/100px-Twinkle_star_animation.gif" // A simple star GIF
         };
 
         spinningItemSelector.addEventListener('change', (event) => {
-            // Fix: Simply updating src should work. Pre-load to ensure smooth transition?
-            // For now, rely on browser's handling of image source change.
-            // If issues persist, consider a small fade-out/fade-in or preloading.
-            spinningItem.src = spinningItemSources[event.target.value];
-            // Ensure the image is always visible and its container doesn't hide it
-            spinningItem.classList.remove('hidden');
+            const selectedSrc = spinningItemSources[event.target.value];
+
+            // Add a cache-busting parameter to force reload
+            const uniqueSrc = `${selectedSrc}?t=${Date.now()}`;
+
+            spinningItem.src = uniqueSrc;
+            spinningItem.classList.remove('hidden'); // Ensure it's visible
+            
+            // Optional: Add a temporary loading state for very slow images
+            // spinningItem.style.opacity = 0.5; // Example: dim while loading
+            // spinningItem.onload = () => { spinningItem.style.opacity = 1; };
+            // spinningItem.onerror = () => { console.error('Failed to load image:', uniqueSrc); spinningItem.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIxNiIgZmlsbD0iI0YzRDk1QiIvPjxwYXRoIGQ9Ik0zMiA2NFMyMi45Njg4IDYyLjY0MDYgMTYgNTZDMTAuNzM0NCA1Mi40Mzc1IDAgNDguMTg3NSAwIDMyQzAgMTUuODEyNSA0Ljc4MTI1IDEwLjUyMzQgMTYgNEMyMi45Njg4IDAgMzIgMCAzMiAwVjY0WiIgZmlsbD0iIzE2NzY5NyIvPjwvc3ZnPg=='; }; // Fallback to a tiny SVG placeholder
         });
 
         // --- Panel 6: Serendipitous Snapshot (Random Image) ---
