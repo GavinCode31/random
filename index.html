@@ -1,129 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>💥 CHAOS PORTAL</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>💥 Useless Central</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Spin animation */
+    .spin-slow {
+      animation: spin 6s linear infinite;
+    }
     @keyframes spin {
-      0% { transform: rotate(0deg);}
-      100% { transform: rotate(360deg);}
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .disco {
+      animation: disco 0.2s infinite alternate;
+    }
+    @keyframes disco {
+      0% { background-color: red; }
+      25% { background-color: yellow; }
+      50% { background-color: lime; }
+      75% { background-color: blue; }
+      100% { background-color: magenta; }
+    }
+    @keyframes hop {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .hop {
+      animation: hop 1s ease-in-out;
     }
 
-    /* Shake animation */
-    @keyframes shake {
-      0%, 100% { transform: translate(0, 0); }
-      25% { transform: translate(5px, -5px); }
-      50% { transform: translate(-5px, 5px); }
-      75% { transform: translate(5px, 5px); }
-    }
-
-    /* Apply shake animation */
-    .shake {
-      animation: shake 0.1s infinite;
-    }
-
-    /* Chaos class for random rotation */
-    .chaos {
+    /* CHAOS MODE: scatter & rotate buttons randomly */
+    .chaos-item {
       position: absolute;
-      transform: rotate(calc(360deg * var(--r)));
+      user-select: none;
+      transition: none !important;
+    }
+
+    /* Whole page shake */
+    @keyframes shakePage {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      10% { transform: translate(-3px, 2px) rotate(-2deg); }
+      20% { transform: translate(-2px, -3px) rotate(1deg); }
+      30% { transform: translate(3px, 1px) rotate(3deg); }
+      40% { transform: translate(-1px, 3px) rotate(-1deg); }
+      50% { transform: translate(2px, -2px) rotate(0deg); }
+      60% { transform: translate(-3px, 0px) rotate(2deg); }
+      70% { transform: translate(1px, 3px) rotate(-3deg); }
+      80% { transform: translate(2px, -1px) rotate(1deg); }
+      90% { transform: translate(-2px, 2px) rotate(-2deg); }
+    }
+    .shake-whole {
+      animation: shakePage 0.15s infinite;
     }
   </style>
 </head>
-<body class="bg-gradient-to-tr from-pink-500 via-yellow-300 to-lime-400 min-h-screen overflow-hidden relative shake">
+<body class="bg-pink-200 min-h-screen text-center font-mono transition-all" id="body">
 
-  <!-- Random Buttons -->
-  <div class="absolute top-5 left-5 chaos" style="--r:0.3;">
-    <button onclick="alert('toaster')" class="bg-purple-600 text-white px-4 py-2 rounded-xl text-lg">🌀 Toaster</button>
+  <h1 class="text-4xl font-extrabold chaos-item">💥 Useless Central</h1>
+
+  <!-- 🍩 Spinning Donut -->
+  <div class="chaos-item" id="donut-container" style="width: 96px; height: 96px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Glazed-Donut.jpg/320px-Glazed-Donut.jpg"
+         alt="Donut of Chaos"
+         class="rounded-full w-24 h-24 spin-slow shadow-xl" id="donut-img">
+    <p class="mt-1 italic text-sm">All hail the sacred donut.</p>
   </div>
 
-  <div class="absolute top-1/4 right-20 chaos" style="--r:1.2;">
-    <button onclick="alert('butterfly cheese!')" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xl">🦋 Cheese</button>
+  <!-- 🔊 Fake Sound Button -->
+  <button onclick="playFakeSound()" class="bg-purple-500 text-white px-6 py-2 rounded-full hover:bg-purple-700 shadow chaos-item">🔊 Fake Sound</button>
+  <p id="soundText" class="text-sm chaos-item"></p>
+
+  <!-- 🐿️ Squirrel Quotes -->
+  <div class="bg-white p-4 rounded shadow-md w-72 chaos-item">
+    <h2 class="font-bold text-lg">🐿️ Squirrel Wisdom</h2>
+    <p id="quote" class="mt-2">Click below to get wise.</p>
+    <button onclick="getSquirrelQuote()" class="mt-3 bg-yellow-300 px-4 py-2 rounded hover:bg-yellow-400">Enlighten Me</button>
   </div>
 
-  <div class="absolute bottom-16 left-1/3 chaos" style="--r:2.6;">
-    <button onclick="explode()" class="bg-red-500 text-white px-4 py-3 rounded-xl text-2xl">💣 Explode</button>
+  <!-- 🥷 Invisible Button -->
+  <button onclick="secretButton()" class="absolute top-0 left-0 w-20 h-20 invisible chaos-item">Secret</button>
+
+  <!-- 🚨 Panic Button -->
+  <button onclick="panic()" class="bg-red-600 text-white font-bold px-6 py-2 rounded-full hover:bg-red-700 shadow chaos-item">🚨 PANIC</button>
+  <p id="panicMessage" class="text-red-800 font-bold text-sm chaos-item"></p>
+
+  <!-- 🕺 Disco Mode -->
+  <button onclick="toggleDisco()" class="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 chaos-item">🕺 Toggle Disco Mode</button>
+
+  <!-- 🧃 Juice Button -->
+  <button onclick="alert('🍹 You drank imaginary juice. Feel refreshed?')" class="bg-green-400 px-4 py-2 rounded-full hover:bg-green-500 chaos-item">🧃 Get Juice</button>
+
+  <!-- 🎲 Dice Roll -->
+  <div class="chaos-item">
+    <p class="text-lg font-bold">🎲 Roll the Dice of Uselessness</p>
+    <button onclick="rollDice()" class="bg-blue-400 px-4 py-2 rounded hover:bg-blue-500">Roll</button>
+    <p id="diceResult" class="mt-2"></p>
   </div>
 
-  <div class="absolute top-1/2 left-1/2 chaos" style="--r:4.2;">
-    <button onclick="crashDevice()" class="bg-black text-white px-6 py-3 rounded-full text-xl">💥 CRASH</button>
+  <!-- 🕹️ Fake Loading Bar -->
+  <div class="w-64 bg-gray-300 rounded h-4 overflow-hidden mt-4 chaos-item" style="position: relative;">
+    <div id="fakeBar" class="bg-indigo-500 h-full w-0"></div>
+  </div>
+  <button onclick="loadBar()" class="text-sm text-indigo-700 chaos-item">Load Something Pointless</button>
+
+  <!-- 📦 Mystery Box -->
+  <button onclick="mysteryBox()" class="bg-orange-400 px-4 py-2 rounded hover:bg-orange-500 chaos-item">📦 Open Mystery Box</button>
+  <p id="mysteryResult" class="italic text-sm chaos-item"></p>
+
+  <!-- 🧠 Brain Enlarger -->
+  <button onclick="brainGrow()" class="bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-900 chaos-item">🧠 Enlarge Brain</button>
+  <p id="brainMsg" class="text-sm text-gray-700 chaos-item"></p>
+
+  <!-- 🐸 Frog Emoji Hops -->
+  <div id="frog" class="text-4xl chaos-item">🐸</div>
+
+  <!-- 🍕 Pizza Rating -->
+  <div class="flex flex-col items-center chaos-item">
+    <label for="pizza" class="text-lg font-bold">🍕 Rate This Pizza (why?)</label>
+    <input type="range" id="pizza" min="0" max="10" class="w-64 mt-2" oninput="updatePizza(this.value)">
+    <p id="pizzaRating" class="text-sm"></p>
   </div>
 
-  <div class="absolute bottom-5 right-5 chaos" style="--r:1.8;">
-    <button onclick="summonDonut()" class="bg-yellow-400 text-black px-4 py-2 rounded-lg text-xl">🍩 DONUT</button>
-  </div>
+  <!-- 🌈 Rainbow Bar -->
+  <div class="w-64 h-4 rounded mt-4 border border-black chaos-item" id="rainbowBar"></div>
+  <button onclick="randomizeRainbow()" class="text-sm mt-1 chaos-item">🌈 Make It Weird</button>
 
-  <!-- Donut Container -->
-  <div id="donut-container" class="absolute top-1/3 left-1/2 chaos" style="--r:3;">
-    <!-- Donut will appear here -->
-  </div>
+  <!-- 💩 Poop Counter -->
+  <button onclick="addPoop()" class="bg-yellow-800 px-4 py-2 rounded-full hover:bg-yellow-900 chaos-item">💩 Add Poop</button>
+  <p id="poopCount" class="text-2xl chaos-item">💩 x0</p>
 
-  <script>
-    // Explode function: spams the screen with colorful confetti
-    function explode() {
-      alert("🎉 YOU HAVE BEEN EXPLODED.");
-      for (let i = 0; i < 100; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = "absolute w-2 h-2 rounded-full";
-        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-        confetti.style.top = `${Math.random() * 100}vh`;
-        confetti.style.left = `${Math.random() * 100}vw`;
-        confetti.style.animation = "spin 1s linear infinite";
-        document.body.appendChild(confetti);
+  <!-- 🛑 CRASH Button -->
+  <button id="crashBtn" class="bg-black text-red-600 font-bold px-6 py-2 rounded-full chaos-item hover:bg-red-900 shadow">🛑 CRASH (Slow iPad)</button>
+
+<script>
+  // === ORIGINAL FUNCTIONS ===
+  function playFakeSound() {
+    const sounds = ["🪗 Accordion slam!", "🐔 Chicken techno!", "📢 Reverse scream!", "💎 Minecraft villager huh!"];
+    document.getElementById("soundText").textContent = sounds[Math.floor(Math.random() * sounds.length)];
+  }
+
+  function getSquirrelQuote() {
+    const quotes = [
+      "“Leap before you think.”",
+      "“Store the nut today, regret never.”",
+      "“All trees lead somewhere.”",
+      "“Chaos is just future order.”"
+    ];
+    document.getElementById("quote").textContent = quotes[Math.floor(Math.random() * quotes.length)];
+  }
+
+  function secretButton() {
+    alert("🎯 You clicked air and it counted.");
+  }
+
+  function panic() {
+    document.getElementById("panicMessage").textContent = "🧨 Launching self-destruct in... never.";
+    setTimeout(() => {
+      document.getElementById("panicMessage").textContent = "";
+    }, 3000);
+  }
+
+  function toggleDisco() {
+    document.getElementById("body").classList.toggle("disco");
+  }
+
+  function rollDice() {
+    const outcomes = ["Nothing happened.", "You gained a sock!", "A pigeon winked at you.", "Instant regret.", "Legendary fart noise heard."];
+    document.getElementById("diceResult").textContent = outcomes[Math.floor(Math.random() * outcomes.length)];
+  }
+
+  function loadBar() {
+    let bar = document.getElementById("fakeBar");
+    bar.style.width = "0%";
+    let i = 0;
+    let interval = setInterval(() => {
+      if (i >= 100) return clearInterval(interval);
+      i += 5;
+      bar.style.width = i + "%";
+    }, 100);
+  }
+
+  function mysteryBox() {
+    const items = ["🪤 Mouse trap (why?)", "🎈 Floating nothingness", "📎 A really big paperclip", "🧼 Soapy sock", "🦑 Baby squid"];
+    document.getElementById("mysteryResult").textContent = "You got: " + items[Math.floor(Math.random() * items.length)];
+  }
+
+  function brainGrow() {
+    document.getElementById("brainMsg").textContent = "🧠 Your brain is now 0.02% more random.";
+  }
+
+  // 🐸 Hopping frog
+  setInterval(() => {
+    let frog = document.getElementById("frog");
+    frog.classList.add("hop");
+    setTimeout(() => frog.classList.remove("hop"), 1000);
+  }, 3000);
+
+  function updatePizza(val) {
+    document.getElementById("pizzaRating").textContent = `Rated ${val}/10. Totally matters.`;
+  }
+
+  function randomizeRainbow() {
+    const colors = ["#ff0000", "#ffa500", "#ffff00", "#00ff00", "#0000ff", "#4b0082", "#ee82ee"];
+    document.getElementById("rainbowBar").style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  let poop = 0;
+  function addPoop() {
+    poop++;
+    document.getElementById("poopCount").textContent = `💩 x${poop}`;
+  }
+
+
+  // === NEW: CHAOS MODE positioning + rotation ===
+  function chaosScatter() {
+    const chaosItems = document.querySelectorAll('.chaos-item');
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    chaosItems.forEach(el => {
+      // random position inside viewport minus element size to avoid overflow
+      const w = el.offsetWidth;
+      const h = el.offsetHeight;
+      const x = Math.random() * (vw - w);
+      const y = Math.random() * (vh - h);
+      const rot = (Math.random() * 360) - 180; // random rotation between -180 and +180
+      el.style.left = x + 'px';
+      el.style.top = y + 'px';
+      el.style.transform = `rotate(${rot}deg)`;
+    });
+  }
+
+  // === NEW: Make whole page shake constantly ===
+  function enablePageShake() {
+    document.body.classList.add('shake-whole');
+  }
+
+  // === NEW: CRASH button that slows iPad without crashing ===
+  // It just keeps the CPU busy on a big loop (non-blocking), using setTimeout to not freeze browser fully
+  function crashSlow() {
+    let busy = true;
+    function busyLoop() {
+      const start = performance.now();
+      while (performance.now() - start < 10) {
+        // waste time for 10ms blocks
+        Math.sqrt(Math.random() * 9999999);
       }
+      if (busy) setTimeout(busyLoop, 1);
     }
+    busyLoop();
+    // To stop later, you can extend this with a toggle if you want.
+  }
 
-    // Summon Donut function: displays a spinning donut image
-    function summonDonut() {
-      const img = document.createElement("img");
-      img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Glazed-Donut.jpg/600px-Glazed-Donut.jpg";
-      img.className = "w-40 h-40 animate-spin rounded-full border-4 border-pink-500 shadow-lg";
-      document.getElementById("donut-container").appendChild(img);
-    }
+  // Bind crash button
+  document.getElementById("crashBtn").addEventListener("click", () => {
+    alert("⚠️ Warning: This will slow down your device but not crash it.");
+    crashSlow();
+  });
 
-    // Crash Device function: slows down the browser significantly
-    function crashDevice() {
-      let container = document.createElement("div");
-      container.style.position = "absolute";
-      container.style.top = "0";
-      container.style.left = "0";
-      container.style.width = "100vw";
-      container.style.height = "100vh";
-      container.style.zIndex = "99999";
-      document.body.appendChild(container);
+  // Run chaosScatter every 3 seconds for constant chaos
+  chaosScatter();
+  enablePageShake();
+  setInterval(chaosScatter, 3000);
 
-      // Spam thousands of divs
-      for (let i = 0; i < 3000; i++) {
-        let div = document.createElement("div");
-        div.style.width = "5px";
-        div.style.height = "5px";
-        div.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-        div.style.position = "absolute";
-        div.style.top = `${Math.random() * 100}vh`;
-        div.style.left = `${Math.random() * 100}vw`;
-        div.style.animation = `spin 1s linear infinite`;
-        container.appendChild(div);
-      }
+</script>
 
-      // Set heavy intervals
-      setInterval(() => {
-        for (let i = 0; i < 10000; i++) {
-          Math.sqrt(i * Math.random());
-        }
-      }, 10);
-
-      // Use requestAnimationFrame for lag loops
-      function lagLoop() {
-        for (let i = 0; i < 2000; i++) {
-          document.body.offsetHeight; // force reflow
-        }
-        requestAnimationFrame(lagLoop);
-      }
-      lagLoop();
-
-      alert("😈 Lag Mode ACTIVATED. Good luck.");
-    }
-  </script>
 </body>
 </html>
