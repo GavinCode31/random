@@ -37,23 +37,6 @@
       user-select: none;
       transition: none !important;
     }
-
-    /* Whole page shake */
-    @keyframes shakePage {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      10% { transform: translate(-3px, 2px) rotate(-2deg); }
-      20% { transform: translate(-2px, -3px) rotate(1deg); }
-      30% { transform: translate(3px, 1px) rotate(3deg); }
-      40% { transform: translate(-1px, 3px) rotate(-1deg); }
-      50% { transform: translate(2px, -2px) rotate(0deg); }
-      60% { transform: translate(-3px, 0px) rotate(2deg); }
-      70% { transform: translate(1px, 3px) rotate(-3deg); }
-      80% { transform: translate(2px, -1px) rotate(1deg); }
-      90% { transform: translate(-2px, 2px) rotate(-2deg); }
-    }
-    .shake-whole {
-      animation: shakePage 0.15s infinite;
-    }
   </style>
 </head>
 <body class="bg-pink-200 min-h-screen text-center font-mono transition-all" id="body">
@@ -198,70 +181,73 @@
     setTimeout(() => frog.classList.remove("hop"), 1000);
   }, 3000);
 
-  function updatePizza(val) {
-    document.getElementById("pizzaRating").textContent = `Rated ${val}/10. Totally matters.`;
+  // 🍕 Pizza slider update
+  function updatePizza(value) {
+    document.getElementById("pizzaRating").textContent = `You rated it: ${value}/10. Perfectly pointless.`;
   }
 
+  // 🌈 Rainbow bar randomize
   function randomizeRainbow() {
-    const colors = ["#ff0000", "#ffa500", "#ffff00", "#00ff00", "#0000ff", "#4b0082", "#ee82ee"];
-    document.getElementById("rainbowBar").style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    let bar = document.getElementById("rainbowBar");
+    let gradient = `linear-gradient(90deg, 
+      hsl(${Math.random()*360},100%,50%) 0%,
+      hsl(${Math.random()*360},100%,50%) 25%,
+      hsl(${Math.random()*360},100%,50%) 50%,
+      hsl(${Math.random()*360},100%,50%) 75%,
+      hsl(${Math.random()*360},100%,50%) 100%)`;
+    bar.style.background = gradient;
   }
 
-  let poop = 0;
+  // 💩 Poop counter
+  let poopCounter = 0;
   function addPoop() {
-    poop++;
-    document.getElementById("poopCount").textContent = `💩 x${poop}`;
+    poopCounter++;
+    document.getElementById("poopCount").textContent = "💩 x" + poopCounter;
   }
 
 
-  // === NEW: CHAOS MODE positioning + rotation ===
+  // === CHAOS MODE SCATTER & ROTATE ===
   function chaosScatter() {
-    const chaosItems = document.querySelectorAll('.chaos-item');
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    chaosItems.forEach(el => {
-      // random position inside viewport minus element size to avoid overflow
-      const w = el.offsetWidth;
-      const h = el.offsetHeight;
-      const x = Math.random() * (vw - w);
-      const y = Math.random() * (vh - h);
-      const rot = (Math.random() * 360) - 180; // random rotation between -180 and +180
-      el.style.left = x + 'px';
-      el.style.top = y + 'px';
-      el.style.transform = `rotate(${rot}deg)`;
+    const items = document.querySelectorAll(".chaos-item");
+    const padding = 20; // margin from edges
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    items.forEach(el => {
+      // random position inside viewport with padding
+      const x = Math.random() * (w - el.offsetWidth - padding*2) + padding;
+      const y = Math.random() * (h - el.offsetHeight - padding*2) + padding;
+      // random rotation between -30 and 30 degrees
+      const rot = (Math.random() * 60) - 30;
+      el.style.transform = `translate(${x}px, ${y}px) rotate(${rot}deg)`;
     });
   }
 
-  // === NEW: Make whole page shake constantly ===
-  function enablePageShake() {
-    document.body.classList.add('shake-whole');
-  }
-
-  // === NEW: CRASH button that slows iPad without crashing ===
-  // It just keeps the CPU busy on a big loop (non-blocking), using setTimeout to not freeze browser fully
+  // === CRASH BUTTON SLOWDOWN (without freezing UI) ===
   function crashSlow() {
     let busy = true;
-    function busyLoop() {
-      const start = performance.now();
-      while (performance.now() - start < 10) {
-        // waste time for 10ms blocks
-        Math.sqrt(Math.random() * 9999999);
+    let start = Date.now();
+    function loop() {
+      let now = Date.now();
+      // Busy wait for 30ms blocks every 50ms
+      while (Date.now() - now < 30) {}
+      if (Date.now() - start < 15000 && busy) {
+        setTimeout(loop, 20);
+      } else {
+        busy = false;
+        alert("🛑 Done slowing down. Your device should feel the pain.");
       }
-      if (busy) setTimeout(busyLoop, 1);
     }
-    busyLoop();
-    // To stop later, you can extend this with a toggle if you want.
+    loop();
   }
 
-  // Bind crash button
+  // Attach crash button
   document.getElementById("crashBtn").addEventListener("click", () => {
     alert("⚠️ Warning: This will slow down your device but not crash it.");
     crashSlow();
   });
 
-  // Run chaosScatter every 3 seconds for constant chaos
+  // Run chaosScatter every 3 seconds
   chaosScatter();
-  enablePageShake();
   setInterval(chaosScatter, 3000);
 
 </script>
