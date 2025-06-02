@@ -3,130 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Peculiar Portal</title>
+    <title>The Randomonium Emporium</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Optional: Custom scrollbar or other minor tweaks if needed */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            transition: background-color 1s ease-in-out;
+            background-color: #f4f4f7;
         }
-        .fact-card {
-            transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-            transform-style: preserve-3d;
+        .panel {
+            background-white rounded-lg shadow-md p-6;
         }
-        .fact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        .spinning-donut {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #ccc;
+            border-top-color: #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-purple-700 via-blue-500 to-green-400 min-h-screen flex items-center justify-center p-4">
+<body class="bg-gray-100 min-h-screen py-8">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-    <div id="portal-container" class="relative bg-white bg-opacity-90 rounded-xl shadow-2xl p-8 max-w-2xl w-full text-center border-4 border-opacity-50 border-purple-300">
-        <h1 class="text-5xl font-extrabold text-gray-900 mb-6 animate-pulse">The Peculiar Portal</h1>
-
-        <div id="fact-card" class="fact-card bg-gradient-to-r from-teal-400 to-blue-500 text-white p-6 rounded-lg shadow-xl mb-8 transform hover:scale-105">
-            <p id="fact-display" class="text-2xl font-semibold mb-4 italic">
-                Click the button to unveil a new peculiarity!
-            </p>
-            <div id="emoji-display" class="text-6xl mb-4">🔮</div>
+        <div class="panel">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Color Picker</h2>
+            <input type="color" id="colorPicker" class="w-full h-10">
+            <div id="selectedColor" class="mt-4 p-2 rounded" style="background-color: #ffffff; border: 1px solid #ccc;">
+                Selected Color: <span id="colorValue" class="font-mono">#ffffff</span>
+            </div>
         </div>
 
-        <button id="randomize-button" class="bg-gradient-to-r from-pink-500 to-red-600 text-white px-8 py-4 rounded-full text-xl font-bold uppercase shadow-lg hover:from-pink-600 hover:to-red-700 transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-pink-300">
-            Unleash Randomness!
-        </button>
-
-        <div id="hidden-message" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-gray-600 text-sm opacity-0 transition-opacity duration-1000">
-            You found the secret message! 🤫
+        <div class="panel">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Random Number</h2>
+            <p id="randomNumberDisplay" class="text-2xl font-bold text-blue-600">Generate Below</p>
+            <button id="generateNumber" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Generate</button>
         </div>
-    </div>
+
+        <div class="panel">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Random Emoji</h2>
+            <p id="randomEmojiDisplay" class="text-4xl">?</p>
+            <button id="generateEmoji" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Generate</button>
+        </div>
+
+        <div class="panel">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Crash Your Browser</h2>
+            <p class="text-sm text-gray-600 mb-2">Warning: This might make your browser unresponsive.</p>
+            <button id="crashBrowser" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Initiate Crash</button>
+        </div>
+
+        <div class="panel flex items-center justify-center flex-col">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Spinning Donut</h2>
+            <div class="spinning-donut"></div>
+        </div>
+
+        <div class="panel">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Random Image</h2>
+            <div id="randomImageContainer" class="w-full h-48 bg-gray-200 rounded-md flex items-center justify-center overflow-hidden">
+                <span class="text-gray-500 italic">Click to Load Image</span>
+                <img id="randomImage" src="" alt="Random Image" class="hidden object-cover w-full h-full">
+            </div>
+            <button id="generateImage" class="mt-4 bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Load Image</button>
+        </div>
+
+        </div>
 
     <script>
-        const facts = [
-            "A group of owls is called a parliament.",
-            "Octopuses have three hearts.",
-            "A 'jiffy' is an actual unit of time: 1/100th of a second.",
-            "The shortest war in history lasted 38 to 45 minutes (between Britain and Zanzibar in 1896).",
-            "There are more possible iterations of a game of chess than there are atoms in the known universe.",
-            "Bananas are berries, but strawberries aren't.",
-            "The inventor of the Pringles can is buried in one.",
-            "It is impossible for most people to lick their own elbow.",
-            "Sharks have been around for more than 400 million years, predating trees.",
-            "A snail can sleep for three years.",
-            "The average person will walk the equivalent of five times around the equator in their lifetime.",
-            "Cows have best friends.",
-            "Honey never spoils.",
-            "The human brain weighs about 3 pounds but uses 20% of the body's oxygen and calories.",
-            "Flamingos can only eat when their heads are upside down.",
-            "The 'sixth sick sheik's sixth sheep's sick' is believed to be the toughest tongue twister in the English language.",
-            "Hot water will turn into ice faster than cold water (Mpemba effect).",
-            "Banging your head against a wall for an hour burns 150 calories.",
-            "The strongest muscle in the body is the tongue.",
-            "It is illegal to own just one guinea pig in Switzerland because they are prone to loneliness."
-        ];
+        // Color Picker
+        const colorPicker = document.getElementById('colorPicker');
+        const selectedColorDiv = document.getElementById('selectedColor');
+        const colorValueSpan = document.getElementById('colorValue');
 
-        const emojis = ["🤯", "🧐", "🤔", "😲", "✨", "👽", "👾", "🌀", "🧩", "🦄", "🪞", "🗝️", "🔮", "🧪", "🧬"];
+        colorPicker.addEventListener('input', (event) => {
+            const color = event.target.value;
+            selectedColorDiv.style.backgroundColor = color;
+            colorValueSpan.textContent = color;
+        });
 
-        const factDisplay = document.getElementById('fact-display');
-        const emojiDisplay = document.getElementById('emoji-display');
-        const randomizeButton = document.getElementById('randomize-button');
-        const body = document.body;
-        const portalContainer = document.getElementById('portal-container');
-        const factCard = document.getElementById('fact-card');
-        const hiddenMessage = document.getElementById('hidden-message');
+        // Random Number
+        const randomNumberDisplay = document.getElementById('randomNumberDisplay');
+        const generateNumberButton = document.getElementById('generateNumber');
 
-        let clickCount = 0;
+        generateNumberButton.addEventListener('click', () => {
+            const randomNumber = Math.floor(Math.random() * 1000); // Adjust range as needed
+            randomNumberDisplay.textContent = randomNumber;
+        });
 
-        function getRandomElement(array) {
-            return array[Math.floor(Math.random() * array.length)];
-        }
+        // Random Emoji
+        const randomEmojiDisplay = document.getElementById('randomEmojiDisplay');
+        const generateEmojiButton = document.getElementById('generateEmoji');
+        const emojis = ["😂", "😊", "😎", "🥳", "🤯", "🤔", "😍", "👍", "🎉", "🎈", "🎁", "🌟", "💫", "🌈", "✨"];
 
-        function getRandomColor() {
-            const hue = Math.floor(Math.random() * 360);
-            const saturation = Math.floor(Math.random() * (70 - 40 + 1)) + 40; // 40-70% saturation
-            const lightness = Math.floor(Math.random() * (70 - 50 + 1)) + 50; // 50-70% lightness
-            return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-        }
+        generateEmojiButton.addEventListener('click', () => {
+            const randomEmoji = emojis[(Math.floor(Math.random() * emojis.length))];
+            randomEmojiDisplay.textContent = randomEmoji;
+        });
 
-        function updateRandomContent() {
-            // Update fact and emoji
-            factDisplay.textContent = getRandomElement(facts);
-            emojiDisplay.textContent = getRandomElement(emojis);
+        // Crash Your Browser
+        const crashBrowserButton = document.getElementById('crashBrowser');
 
-            // Animate fact card
-            factCard.classList.add('animate-pulse-once'); // Add a temporary pulse class if you define one
-            setTimeout(() => {
-                factCard.classList.remove('animate-pulse-once');
-            }, 500); // Remove after animation
-
-            // Randomize background and portal container colors
-            const newBodyColor1 = getRandomColor();
-            const newBodyColor2 = getRandomColor();
-            const newBodyColor3 = getRandomColor();
-            body.style.backgroundImage = `linear-gradient(to bottom right, ${newBodyColor1}, ${newBodyColor2}, ${newBodyColor3})`;
-
-            const newCardBg1 = getRandomColor();
-            const newCardBg2 = getRandomColor();
-            factCard.style.backgroundImage = `linear-gradient(to right, ${newCardBg1}, ${newCardBg2})`;
-
-            portalContainer.style.borderColor = getRandomColor();
-
-            // Randomly show the hidden message
-            clickCount++;
-            if (clickCount % 7 === 0) { // Every 7th click
-                hiddenMessage.style.opacity = '1';
-                setTimeout(() => {
-                    hiddenMessage.style.opacity = '0';
-                }, 3000);
+        crashBrowserButton.addEventListener('click', () => {
+            let i = 0;
+            while (true) {
+                i++; // This will eventually make the tab unresponsive
             }
-        }
+        });
 
-        // Initial load
-        updateRandomContent();
+        // Random Image
+        const randomImageContainer = document.getElementById('randomImageContainer');
+        const randomImage = document.getElementById('randomImage');
+        const generateImageButton = document.getElementById('generateImage');
+        const apiKey = 'YOUR_UNSPLASH_API_KEY'; // Replace with your Unsplash API key if you have one
+        const unsplashUrl = 'https://source.unsplash.com/random/400x300'; // A simpler way to get random images
 
-        // Event listener for the button
-        randomizeButton.addEventListener('click', updateRandomContent);
+        generateImageButton.addEventListener('click', () => {
+            randomImage.src = unsplashUrl;
+            randomImage.classList.remove('hidden');
+            randomImageContainer.classList.remove('bg-gray-200', 'flex', 'items-center', 'justify-center');
+            randomImageContainer.innerHTML = ''; // Clear the placeholder text
+            randomImageContainer.appendChild(randomImage);
+        });
     </script>
 </body>
 </html>
