@@ -259,6 +259,126 @@
             <button id="newEmojiSequenceButton" class="mt-4 bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50">Generate Sequence</button>
         </div>
 
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Hex Harmony</h2>
+            <div id="hexColorDisplay" class="w-full h-24 rounded-md mb-4" style="background-color: #000000;"></div>
+            <p id="hexValue" class="text-lg font-mono text-center">#000000</p>
+            <button id="generateHexButton" class="mt-4 bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">New Hex</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Passphrase Progenitor</h2>
+            <p id="passphraseDisplay" class="text-xl font-bold text-red-400 text-center flex-grow flex items-center justify-center">Strong-Secure-Random</p>
+            <button id="generatePassphraseButton" class="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">Generate Passphrase</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Character Creator</h2>
+            <p id="characterNameDisplay" class="text-3xl font-bold text-blue-400 text-center flex-grow flex items-center justify-center">Elara Swift</p>
+            <button id="generateCharacterButton" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">New Character</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Discovery Dispatch</h2>
+            <p id="discoveryFactDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">Penicillin was discovered by accident.</p>
+            <button id="newDiscoveryButton" class="mt-4 bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50">New Discovery</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Chronicle Scroller</h2>
+            <p id="historicalEventDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">The invention of the printing press revolutionized knowledge dissemination.</p>
+            <button id="newHistoricalButton" class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">New Event</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Cinema Suggestor</h2>
+            <p id="movieGenreDisplay" class="text-3xl font-bold text-pink-400 text-center flex-grow flex items-center justify-center">Sci-Fi</p>
+            <button id="newMovieGenreButton" class="mt-4 bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50">Suggest Genre</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Literary Loop</h2>
+            <p id="bookGenreDisplay" class="text-3xl font-bold text-teal-400 text-center flex-grow flex items-center justify-center">Fantasy</p>
+            <button id="newBookGenreButton" class="mt-4 bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">Suggest Genre</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Board Game Brainstorm</h2>
+            <p id="boardGameIdeaDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">A game where you trade magical ingredients to brew potions.</p>
+            <button id="newBoardGameButton" class="mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">New Game Idea</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Pixel Pulse</h2>
+            <p id="videoGameIdeaDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">An open-world RPG where you play as a sentient cloud.</p>
+            <button id="newVideoGameButton" class="mt-4 bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50">New Game Idea</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Power Plunger</h2>
+            <p id="superpowerDisplay" class="text-3xl font-bold text-green-400 text-center flex-grow flex items-center justify-center">Teleportation</p>
+            <button id="newSuperpowerButton" class="mt-4 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">Grant Power</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Achilles' Annex</h2>
+            <p id="weaknessDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">Must recite a limerick before using powers.</p>
+            <button id="newWeaknessButton" class="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50">Uncover Weakness</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Lyric Luminary</h2>
+            <p id="songLyricDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">"And in the end, the love you take is equal to the love you make."</p>
+            <button id="newLyricButton" class="mt-4 bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-opacity-50">New Lyric</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Culinary Catalyst</h2>
+            <p id="recipeIdeaDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">Spicy Peanut Noodles with Crispy Tofu</p>
+            <button id="newRecipeButton" class="mt-4 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50">New Recipe Idea</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Melody Machine</h2>
+            <p id="instrumentDisplay" class="text-3xl font-bold text-cyan-400 text-center flex-grow flex items-center justify-center">Piano</p>
+            <button id="newInstrumentButton" class="mt-4 bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-opacity-50">Random Instrument</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Mythical Menagerie</h2>
+            <p id="mythicalCreatureDisplay" class="text-3xl font-bold text-purple-400 text-center flex-grow flex items-center justify-center">Griffin</p>
+            <button id="newMythicalCreatureButton" class="mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">New Creature</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Voyage Visionary</h2>
+            <p id="holidayDestinationDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">The Swiss Alps</p>
+            <button id="newHolidayButton" class="mt-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-opacity-50">Dream Destination</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Artistic Oracle</h2>
+            <p id="artStyleDisplay" class="text-3xl font-bold text-rose-400 text-center flex-grow flex items-center justify-center">Impressionism</p>
+            <button id="newArtStyleButton" class="mt-4 bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-opacity-50">New Art Style</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Philosophical Forge</h2>
+            <p id="discussionQuestionDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">If you could have dinner with any historical figure, who would it be and why?</p>
+            <button id="newDiscussionButton" class="mt-4 bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">New Question</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Code Catalyst</h2>
+            <p id="programmingLanguageDisplay" class="text-3xl font-bold text-fuchsia-400 text-center flex-grow flex items-center justify-center">Python</p>
+            <button id="newProgrammingLanguageButton" class="mt-4 bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 focus:ring-opacity-50">Random Language</button>
+        </div>
+
+        <div class="panel rounded-xl p-6 flex flex-col justify-between">
+            <h2 class="text-2xl font-bold mb-4 text-white">Task Taster</h2>
+            <p id="choreSuggestionDisplay" class="text-xl italic text-gray-300 text-center flex-grow flex items-center justify-center">Clean out the junk drawer.</p>
+            <button id="newChoreButton" class="mt-4 bg-lime-600 hover:bg-lime-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-opacity-50">New Chore</button>
+        </div>
 
     </div>
 
@@ -507,7 +627,7 @@
             wyrQuestionDisplay.textContent = wyrQuestions[Math.floor(Math.random() * wyrQuestions.length)];
         });
 
-        // --- NEW PANEL 13: Random Color Palette Generator ---
+        // --- Panel 13: Random Color Palette Generator ---
         const paletteDisplay = document.getElementById('paletteDisplay');
         const generatePaletteButton = document.getElementById('generatePalette');
 
@@ -522,7 +642,7 @@
         }
         generatePaletteButton.addEventListener('click', generateRandomPalette);
 
-        // --- NEW PANEL 14: Random Inspirational Quote ---
+        // --- Panel 14: Random Inspirational Quote ---
         const quoteDisplay = document.getElementById('quoteDisplay');
         const quoteAuthor = document.getElementById('quoteAuthor');
         const newQuoteButton = document.getElementById('newQuoteButton');
@@ -544,7 +664,7 @@
             quoteAuthor.textContent = `- ${randomQuote.author}`;
         });
 
-        // --- NEW PANEL 15: Random ASCII Art ---
+        // --- Panel 15: Random ASCII Art ---
         const asciiArtDisplay = document.getElementById('asciiArtDisplay');
         const newAsciiButton = document.getElementById('newAsciiButton');
         const asciiArt = [
@@ -566,7 +686,7 @@
             asciiArtDisplay.textContent = asciiArt[Math.floor(Math.random() * asciiArt.length)];
         });
 
-        // --- NEW PANEL 16: Random Animal Sound ---
+        // --- Panel 16: Random Animal Sound ---
         const animalSoundName = document.getElementById('animalSoundName');
         const playAnimalSoundButton = document.getElementById('playAnimalSound');
         const animalSoundAudio = document.getElementById('animalSoundAudio');
@@ -586,7 +706,7 @@
             animalSoundAudio.play().catch(e => console.error("Error playing sound:", e)); // Catch Promise rejection
         });
 
-        // --- NEW PANEL 17: Random Compliment Generator ---
+        // --- Panel 17: Random Compliment Generator ---
         const complimentDisplay = document.getElementById('complimentDisplay');
         const newComplimentButton = document.getElementById('newComplimentButton');
         const compliments = [
@@ -605,7 +725,7 @@
             complimentDisplay.textContent = compliments[Math.floor(Math.random() * compliments.length)];
         });
 
-        // --- NEW PANEL 18: Random Fun Fact (Numbers) ---
+        // --- Panel 18: Random Fun Fact (Numbers) ---
         const numberFactDisplay = document.getElementById('numberFactDisplay');
         const generateNumberFactButton = document.getElementById('generateNumberFactButton');
         const numberFacts = [
@@ -625,7 +745,7 @@
             numberFactDisplay.textContent = numberFacts[Math.floor(Math.random() * numberFacts.length)];
         });
 
-        // --- NEW PANEL 19: Random Country & Capital ---
+        // --- Panel 19: Random Country & Capital ---
         const countryDisplay = document.getElementById('countryDisplay');
         const capitalDisplay = document.getElementById('capitalDisplay');
         const generateCountryButton = document.getElementById('generateCountryButton');
@@ -647,7 +767,7 @@
             capitalDisplay.textContent = `Capital: ${randomCountry.capital}`;
         });
 
-        // --- NEW PANEL 20: Random RGB Color Display ---
+        // --- Panel 20: Random RGB Color Display ---
         const rgbDisplay = document.getElementById('rgbDisplay');
         const rgbValue = document.getElementById('rgbValue');
         const generateRGBButton = document.getElementById('generateRGBButton');
@@ -660,7 +780,7 @@
             rgbValue.textContent = rgbString;
         });
 
-        // --- NEW PANEL 21: Random Weather Forecast (mock) ---
+        // --- Panel 21: Random Weather Forecast (mock) ---
         const weatherForecastDisplay = document.getElementById('weatherForecast');
         const newWeatherButton = document.getElementById('newWeatherButton');
         const weatherConditions = [
@@ -676,7 +796,7 @@
             weatherForecastDisplay.textContent = weatherConditions[Math.floor(Math.random() * weatherConditions.length)];
         });
 
-        // --- NEW PANEL 22: Random Story Starter ---
+        // --- Panel 22: Random Story Starter ---
         const storyStarterDisplay = document.getElementById('storyStarterDisplay');
         const newStoryButton = document.getElementById('newStoryButton');
         const storyStarters = [
@@ -695,7 +815,7 @@
             storyStarterDisplay.textContent = storyStarters[Math.floor(Math.random() * storyStarters.length)];
         });
 
-        // --- NEW PANEL 23: Random Unit Conversion ---
+        // --- Panel 23: Random Unit Conversion ---
         const unitConversionDisplay = document.getElementById('unitConversionDisplay');
         const newUnitButton = document.getElementById('newUnitButton');
         const unitConversions = [
@@ -719,7 +839,7 @@
             unitConversionDisplay.textContent = `${conversion.value} ${conversion.from} = ${result.toFixed(conversion.precision)} ${conversion.to}`;
         });
 
-        // --- NEW PANEL 24: Random CSS Gradient Generator ---
+        // --- Panel 24: Random CSS Gradient Generator ---
         const gradientBox = document.getElementById('gradientBox');
         const gradientCSS = document.getElementById('gradientCSS');
         const newGradientButton = document.getElementById('newGradientButton');
@@ -740,7 +860,7 @@
             gradientCSS.textContent = `background: ${cssString};`;
         });
 
-        // --- NEW PANEL 25: Random Geometric Shape ---
+        // --- Panel 25: Random Geometric Shape ---
         const shapeDisplay = document.getElementById('shapeDisplay');
         const shapeNameDisplay = document.getElementById('shapeName');
         const newShapeButton = document.getElementById('newShapeButton');
@@ -764,7 +884,7 @@
             shapeNameDisplay.textContent = randomShape.name;
         });
 
-        // --- NEW PANEL 26: Random Celebrity Name Generator (Mock) ---
+        // --- Panel 26: Random Celebrity Name Generator (Mock) ---
         const celebrityNameDisplay = document.getElementById('celebrityName');
         const newCelebrityButton = document.getElementById('newCelebrityButton');
         const firstNames = ["Ava", "Liam", "Olivia", "Noah", "Emma", "Oliver", "Charlotte", "Elijah", "Amelia", "James", "Sophia", "Benjamin", "Isabella", "Lucas", "Mia", "Henry", "Evelyn", "Alexander", "Harper", "Sebastian"];
@@ -775,7 +895,7 @@
             celebrityNameDisplay.textContent = `${randomFirstName} ${randomLastName}`;
         });
 
-        // --- NEW PANEL 27: Random Emoji Sequence ---
+        // --- Panel 27: Random Emoji Sequence ---
         const emojiSequenceDisplay = document.getElementById('emojiSequenceDisplay');
         const newEmojiSequenceButton = document.getElementById('newEmojiSequenceButton');
         newEmojiSequenceButton.addEventListener('click', () => {
@@ -787,23 +907,282 @@
             emojiSequenceDisplay.textContent = sequence;
         });
 
+        // --- NEW PANEL 28: Random Hex Code Generator ---
+        const hexColorDisplay = document.getElementById('hexColorDisplay');
+        const hexValueDisplay = document.getElementById('hexValue');
+        const generateHexButton = document.getElementById('generateHexButton');
+        generateHexButton.addEventListener('click', () => {
+            const hex = getRandomHexColor();
+            hexColorDisplay.style.backgroundColor = hex;
+            hexValueDisplay.textContent = hex;
+        });
+
+        // --- NEW PANEL 29: Random Passphrase Generator ---
+        const passphraseDisplay = document.getElementById('passphraseDisplay');
+        const generatePassphraseButton = document.getElementById('generatePassphraseButton');
+        const passphraseWords = [
+            "ocean", "whisper", "galaxy", "starlight", "journey", "mountain", "velvet", "thunder", "secret", "crystal",
+            "dragon", "forest", "shadow", "ancient", "sunrise", "dreamer", "golden", "silent", "mystic", "silver"
+        ];
+        generatePassphraseButton.addEventListener('click', () => {
+            let passphrase = [];
+            const numWords = Math.floor(Math.random() * 3) + 3; // 3 to 5 words
+            for (let i = 0; i < numWords; i++) {
+                passphrase.push(passphraseWords[Math.floor(Math.random() * passphraseWords.length)]);
+            }
+            passphraseDisplay.textContent = passphrase.join('-').charAt(0).toUpperCase() + passphrase.join('-').slice(1);
+        });
+
+        // --- NEW PANEL 30: Random Character Name Generator ---
+        const characterNameDisplay = document.getElementById('characterNameDisplay');
+        const generateCharacterButton = document.getElementById('generateCharacterButton');
+        const fantasyFirstNames = ["Elara", "Kaelen", "Lyra", "Roric", "Seraphina", "Thorne", "Isolde", "Corvin", "Zephyr", "Rowan"];
+        const fantasyLastNames = ["Moonwhisper", "Stonefist", "Brightwood", "Darkfall", "Riverbend", "Shadowbrook", "Windrider", "Ironhide", "Silvermoon", "Lightfoot"];
+        generateCharacterButton.addEventListener('click', () => {
+            const firstName = fantasyFirstNames[Math.floor(Math.random() * fantasyFirstNames.length)];
+            const lastName = fantasyLastNames[Math.floor(Math.random() * fantasyLastNames.length)];
+            characterNameDisplay.textContent = `${firstName} ${lastName}`;
+        });
+
+        // --- NEW PANEL 31: Random Famous Discovery Fact ---
+        const discoveryFactDisplay = document.getElementById('discoveryFactDisplay');
+        const newDiscoveryButton = document.getElementById('newDiscoveryButton');
+        const discoveries = [
+            "Penicillin was discovered by accident by Alexander Fleming in 1928.",
+            "The theory of relativity was developed by Albert Einstein in the early 20th century.",
+            "Gravity was conceptualized by Isaac Newton after observing an apple fall.",
+            "DNA's double helix structure was discovered by Watson and Crick in 1953.",
+            "The circulation of blood was described by William Harvey in the 17th century.",
+            "America was 'discovered' by Christopher Columbus in 1492 (though indigenous people were already there).",
+            "The smallpox vaccine was pioneered by Edward Jenner in the late 18th century."
+        ];
+        newDiscoveryButton.addEventListener('click', () => {
+            discoveryFactDisplay.textContent = discoveries[Math.floor(Math.random() * discoveries.length)];
+        });
+
+        // --- NEW PANEL 32: Random Historical Event ---
+        const historicalEventDisplay = document.getElementById('historicalEventDisplay');
+        const newHistoricalButton = document.getElementById('newHistoricalButton');
+        const historicalEvents = [
+            "The invention of the printing press in the 15th century revolutionized knowledge dissemination.",
+            "The fall of the Berlin Wall in 1989 symbolized the end of the Cold War.",
+            "The moon landing by Apollo 11 in 1969 marked a giant leap for mankind.",
+            "The signing of the Declaration of Independence in 1776 established the United States.",
+            "The construction of the Great Wall of China spanned centuries.",
+            "The discovery of fire transformed early human civilization."
+        ];
+        newHistoricalButton.addEventListener('click', () => {
+            historicalEventDisplay.textContent = historicalEvents[Math.floor(Math.random() * historicalEvents.length)];
+        });
+
+        // --- NEW PANEL 33: Random Movie Genre Recommendation ---
+        const movieGenreDisplay = document.getElementById('movieGenreDisplay');
+        const newMovieGenreButton = document.getElementById('newMovieGenreButton');
+        const movieGenres = ["Sci-Fi", "Fantasy", "Action", "Comedy", "Horror", "Thriller", "Drama", "Mystery", "Romance", "Animation", "Documentary", "Western"];
+        newMovieGenreButton.addEventListener('click', () => {
+            movieGenreDisplay.textContent = movieGenres[Math.floor(Math.random() * movieGenres.length)];
+        });
+
+        // --- NEW PANEL 34: Random Book Genre Recommendation ---
+        const bookGenreDisplay = document.getElementById('bookGenreDisplay');
+        const newBookGenreButton = document.getElementById('newBookGenreButton');
+        const bookGenres = ["Fantasy", "Science Fiction", "Mystery", "Thriller", "Horror", "Romance", "Historical Fiction", "Biography", "Self-Help", "Young Adult", "Literary Fiction", "Poetry"];
+        newBookGenreButton.addEventListener('click', () => {
+            bookGenreDisplay.textContent = bookGenres[Math.floor(Math.random() * bookGenres.length)];
+        });
+
+        // --- NEW PANEL 35: Random Board Game Idea ---
+        const boardGameIdeaDisplay = document.getElementById('boardGameIdeaDisplay');
+        const newBoardGameButton = document.getElementById('newBoardGameButton');
+        const boardGameIdeas = [
+            "A game where you trade magical ingredients to brew potions and fulfill whimsical orders.",
+            "A cooperative game where players build a magnificent garden before mischievous gnomes destroy it.",
+            "A deduction game set in a haunted mansion, where one player is the ghost trying to mislead the others.",
+            "A tile-laying game where you build a bustling medieval city, attracting artisans and merchants.",
+            "A legacy game where your choices permanently alter the game board for future plays, exploring a post-apocalyptic world.",
+            "A social deduction game set on a spaceship, where aliens are disguised as crewmates."
+        ];
+        newBoardGameButton.addEventListener('click', () => {
+            boardGameIdeaDisplay.textContent = boardGameIdeas[Math.floor(Math.random() * boardGameIdeas.length)];
+        });
+
+        // --- NEW PANEL 36: Random Video Game Idea ---
+        const videoGameIdeaDisplay = document.getElementById('videoGameIdeaDisplay');
+        const newVideoGameButton = document.getElementById('newVideoGameButton');
+        const videoGameIdeas = [
+            "An open-world RPG where you play as a sentient cloud, shaping the weather and affecting ecosystems.",
+            "A rhythm-based platformer where your jumps and actions are timed to an evolving soundtrack.",
+            "A survival horror game set in a futuristic abandoned space station, where silence is your only weapon.",
+            "A city-builder where you manage a colony of intelligent ants, balancing resource gathering and defense.",
+            "A puzzle game where you manipulate time and space to guide a lost light particle home.",
+            "A co-op rogue-lite where you explore a procedurally generated cosmic library."
+        ];
+        newVideoGameButton.addEventListener('click', () => {
+            videoGameIdeaDisplay.textContent = videoGameIdeas[Math.floor(Math.random() * videoGameIdeas.length)];
+        });
+
+        // --- NEW PANEL 37: Random Superpower ---
+        const superpowerDisplay = document.getElementById('superpowerDisplay');
+        const newSuperpowerButton = document.getElementById('newSuperpowerButton');
+        const superpowers = [
+            "Teleportation", "Invisibility", "Flight", "Super Strength", "Mind Reading",
+            "Time Manipulation", "Elemental Control", "Enhanced Senses", "Healing Factor",
+            "Shapeshifting", "Technopathy (control technology)", "Precognition (seeing the future)"
+        ];
+        newSuperpowerButton.addEventListener('click', () => {
+            superpowerDisplay.textContent = superpowers[Math.floor(Math.random() * superpowers.length)];
+        });
+
+        // --- NEW PANEL 38: Random Weakness (for Superpower) ---
+        const weaknessDisplay = document.getElementById('weaknessDisplay');
+        const newWeaknessButton = document.getElementById('newWeaknessButton');
+        const weaknesses = [
+            "Must recite a limerick before using powers.",
+            "Powers only work on Tuesdays and Thursdays.",
+            "Requires being completely soaked in lukewarm water.",
+            "Causes uncontrollable hiccups for 5 minutes after use.",
+            "Works perfectly, but turns user's hair bright pink temporarily.",
+            "Only effective if a specific, rare bird is singing nearby.",
+            "The user gains the power, but also develops an intense fear of small spoons.",
+            "Can only use powers while holding a rubber chicken."
+        ];
+        newWeaknessButton.addEventListener('click', () => {
+            weaknessDisplay.textContent = weaknesses[Math.floor(Math.random() * weaknesses.length)];
+        });
+
+        // --- NEW PANEL 39: Random Song Lyric (Mock) ---
+        const songLyricDisplay = document.getElementById('songLyricDisplay');
+        const newLyricButton = document.getElementById('newLyricButton');
+        const songLyrics = [
+            "And in the end, the love you take is equal to the love you make.", // The Beatles
+            "Yesterday, all my troubles seemed so far away.", // The Beatles
+            "Is this the real life? Is this just fantasy?", // Queen
+            "Don't stop believin', hold on to that feelin'.", // Journey
+            "You can't always get what you want, but if you try sometimes, you just might find, you get what you need.", // The Rolling Stones
+            "Sweet dreams are made of this, who am I to disagree?", // Eurythmics
+            "Imagine all the people living life in peace.", // John Lennon
+            "Oh, the places you'll go!", // Dr. Seuss (okay, not a song, but inspirational!)
+            "The sun always shines brightest after the rain.", // Metaphorical, common phrase
+            "Every little thing is gonna be alright." // Bob Marley
+        ];
+        newLyricButton.addEventListener('click', () => {
+            songLyricDisplay.textContent = songLyrics[Math.floor(Math.random() * songLyrics.length)];
+        });
+
+        // --- NEW PANEL 40: Random Recipe Idea (Mock) ---
+        const recipeIdeaDisplay = document.getElementById('recipeIdeaDisplay');
+        const newRecipeButton = document.getElementById('newRecipeButton');
+        const recipeIdeas = [
+            "Spicy Peanut Noodles with Crispy Tofu",
+            "Creamy Tomato and Basil Pasta with Burrata",
+            "Sheet Pan Lemon Herb Chicken and Veggies",
+            "Black Bean Burgers with Avocado Crema",
+            "Quick Shrimp Scampi with Linguine",
+            "Mushroom and Spinach Risotto",
+            "Lentil Soup with Crusty Bread"
+        ];
+        newRecipeButton.addEventListener('click', () => {
+            recipeIdeaDisplay.textContent = recipeIdeas[Math.floor(Math.random() * recipeIdeas.length)];
+        });
+
+        // --- NEW PANEL 41: Random Instrument ---
+        const instrumentDisplay = document.getElementById('instrumentDisplay');
+        const newInstrumentButton = document.getElementById('newInstrumentButton');
+        const instruments = ["Piano", "Guitar", "Drums", "Violin", "Flute", "Saxophone", "Trumpet", "Clarinet", "Cello", "Harp", "Ukulele", "Kazoo"];
+        newInstrumentButton.addEventListener('click', () => {
+            instrumentDisplay.textContent = instruments[Math.floor(Math.random() * instruments.length)];
+        });
+
+        // --- NEW PANEL 42: Random Mythical Creature ---
+        const mythicalCreatureDisplay = document.getElementById('mythicalCreatureDisplay');
+        const newMythicalCreatureButton = document.getElementById('newMythicalCreatureButton');
+        const mythicalCreatures = [
+            "Griffin", "Dragon", "Unicorn", "Phoenix", "Mermaid", "Centaur", "Minotaur",
+            "Sphinx", "Gorgon", "Kraken", "Chupacabra", "Bigfoot", "Werewolf", "Vampire", "Faerie"
+        ];
+        newMythicalCreatureButton.addEventListener('click', () => {
+            mythicalCreatureDisplay.textContent = mythicalCreatures[Math.floor(Math.random() * mythicalCreatures.length)];
+        });
+
+        // --- NEW PANEL 43: Random Holiday Destination (Mock) ---
+        const holidayDestinationDisplay = document.getElementById('holidayDestinationDisplay');
+        const newHolidayButton = document.getElementById('newHolidayButton');
+        const holidayDestinations = [
+            "The Swiss Alps", "Kyoto, Japan", "Santorini, Greece", "Machu Picchu, Peru",
+            "The Great Barrier Reef, Australia", "Rome, Italy", "Safari in Tanzania",
+            "The Northern Lights in Iceland", "Paris, France", "New York City, USA"
+        ];
+        newHolidayButton.addEventListener('click', () => {
+            holidayDestinationDisplay.textContent = holidayDestinations[Math.floor(Math.random() * holidayDestinations.length)];
+        });
+
+        // --- NEW PANEL 44: Random Art Style Recommendation ---
+        const artStyleDisplay = document.getElementById('artStyleDisplay');
+        const newArtStyleButton = document.getElementById('newArtStyleButton');
+        const artStyles = [
+            "Impressionism", "Cubism", "Surrealism", "Abstract Expressionism", "Pop Art",
+            "Renaissance", "Baroque", "Gothic", "Minimalism", "Street Art", "Pointillism"
+        ];
+        newArtStyleButton.addEventListener('click', () => {
+            artStyleDisplay.textContent = artStyles[Math.floor(Math.random() * artStyles.length)];
+        });
+
+        // --- NEW PANEL 45: Random Question for Discussion ---
+        const discussionQuestionDisplay = document.getElementById('discussionQuestionDisplay');
+        const newDiscussionButton = document.getElementById('newDiscussionButton');
+        const discussionQuestions = [
+            "If you could have dinner with any historical figure, who would it be and why?",
+            "What's one small change you could make in your daily routine that would significantly improve your life?",
+            "If you could instantly become an expert in one skill, what would it be?",
+            "What's a belief you once held strongly but have since changed your mind about?",
+            "What's the most unusual talent you possess?",
+            "If you had to live in a video game world, which one would it be and why?",
+            "What invention do you think has had the most profound impact on humanity?",
+            "What's your favorite sound in the world?",
+            "If you could design a new national holiday, what would it celebrate?",
+            "What's something you believe is true, even if you can't prove it?"
+        ];
+        newDiscussionButton.addEventListener('click', () => {
+            discussionQuestionDisplay.textContent = discussionQuestions[Math.floor(Math.random() * discussionQuestions.length)];
+        });
+
+        // --- NEW PANEL 46: Random Programming Language ---
+        const programmingLanguageDisplay = document.getElementById('programmingLanguageDisplay');
+        const newProgrammingLanguageButton = document.getElementById('newProgrammingLanguageButton');
+        const programmingLanguages = [
+            "Python", "JavaScript", "Java", "C++", "C#", "Go", "Ruby", "Swift", "PHP", "Rust", "Kotlin", "TypeScript"
+        ];
+        newProgrammingLanguageButton.addEventListener('click', () => {
+            programmingLanguageDisplay.textContent = programmingLanguages[Math.floor(Math.random() * programmingLanguages.length)];
+        });
+
+        // --- NEW PANEL 47: Random Chore/Task Suggestion ---
+        const choreSuggestionDisplay = document.getElementById('choreSuggestionDisplay');
+        const newChoreButton = document.getElementById('newChoreButton');
+        const choreSuggestions = [
+            "Clean out the junk drawer.",
+            "Organize your digital photos.",
+            "Wipe down all light switches and doorknobs.",
+            "Dust the ceiling fans.",
+            "Sort through your spice rack.",
+            "Empty and wipe down the trash cans.",
+            "Clean your computer screen and keyboard.",
+            "Refill the soap dispensers."
+        ];
+        newChoreButton.addEventListener('click', () => {
+            choreSuggestionDisplay.textContent = choreSuggestions[Math.floor(Math.random() * choreSuggestions.length)];
+        });
 
         // --- Initialize Display States on Page Load ---
         document.addEventListener('DOMContentLoaded', () => {
-            // Color Picker
+            // Existing panels initialization
             const initialColor = colorPicker.value;
             updateColorDisplay(initialColor);
-
-            // Image Panel
             imagePlaceholder.classList.remove('hidden');
             randomImage.classList.add('hidden');
             imageLoadingIndicator.classList.add('hidden');
             imageError.classList.add('hidden');
-
-            // Joke Panel
-            displayNewJoke(); // Load an initial joke
-
-            // Other existing panels initial states
+            displayNewJoke();
             generateFactButton.click();
             generateWordButton.click();
             eightBallAnswerDisplay.textContent = "...";
@@ -811,11 +1190,11 @@
             die2Display.textContent = "?";
             newWyrButton.click();
 
-            // Initialize new panels
+            // Initialize previous 15 new panels
             generatePaletteButton.click();
             newQuoteButton.click();
             newAsciiButton.click();
-            animalSoundName.textContent = "Click to play!"; // Initial text for sound
+            animalSoundName.textContent = "Click to play!";
             newComplimentButton.click();
             generateNumberFactButton.click();
             generateCountryButton.click();
@@ -827,6 +1206,28 @@
             newShapeButton.click();
             newCelebrityButton.click();
             newEmojiSequenceButton.click();
+
+            // Initialize these 20 new panels
+            generateHexButton.click();
+            generatePassphraseButton.click();
+            generateCharacterButton.click();
+            newDiscoveryButton.click();
+            newHistoricalButton.click();
+            newMovieGenreButton.click();
+            newBookGenreButton.click();
+            newBoardGameButton.click();
+            newVideoGameButton.click();
+            newSuperpowerButton.click();
+            newWeaknessButton.click();
+            newLyricButton.click();
+            newRecipeButton.click();
+            newInstrumentButton.click();
+            newMythicalCreatureButton.click();
+            newHolidayButton.click();
+            newArtStyleButton.click();
+            newDiscussionButton.click();
+            newProgrammingLanguageButton.click();
+            newChoreButton.click();
         });
     </script>
 </body>
